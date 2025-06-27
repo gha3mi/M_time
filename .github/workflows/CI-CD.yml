@@ -1,0 +1,254 @@
+name: Setup Fortran Conda CI/CD
+
+on:
+  push:
+    branches: [main, master, dev]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  test_fpm:
+    name: ${{ matrix.os }}_${{ matrix.compiler }}_fpm
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        compiler: [gfortran, ifx, lfortran, flang-new, nvfortran]
+        include:
+          - os: ubuntu-latest
+            extra-packages: ""
+          - os: windows-latest
+            extra-packages: ""
+          - os: macos-latest
+            extra-packages: ""
+        exclude:
+          - os: macos-latest
+            compiler: flang-new
+          - os: macos-latest
+            compiler: ifx
+          - os: macos-latest
+            compiler: nvfortran
+          - os: windows-latest
+            compiler: nvfortran
+    env:
+      TZ: UTC+04:00
+    steps:
+      - name: Setup Fortran
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          compiler: ${{ matrix.compiler }}
+          platform: ${{ matrix.os }}
+          extra-packages: ${{ matrix.extra-packages }}
+
+      - name: Set environment for lfortran
+        if: matrix.compiler == 'lfortran'
+        run: |
+          echo "FPM_FFLAGS='--no-style-warnings' --cpp" >> $GITHUB_ENV
+
+      - name: Set environment for gfortran and windows
+        if: matrix.compiler == 'gfortran' && matrix.os == 'windows-latest'
+        run: |
+          echo "end" >_empty.f90
+          gfortran -cpp -dM -E _empty.f90
+          gfortran --version
+          echo "FPM_FFLAGS=-D_WIN32" >> $env:GITHUB_ENV
+
+      - name: Set environment for gfortran and not windows
+        if: matrix.compiler == 'gfortran' && matrix.os != 'windows-latest'
+        run: |
+          echo "end" >_empty.f90
+          gfortran -cpp -dM -E _empty.f90
+          gfortran --version
+
+      - name: Set environment for flang-new
+        if: matrix.compiler == 'flang-new'
+        run: |
+          echo "end" >_empty.f90
+          flang-new -cpp -dM -E _empty.f90
+          flang-new --version
+          echo "FPM_FFLAGS='-cpp'" >> $GITHUB_ENV
+
+      - name: Set environment for ifx and windows
+        if: matrix.compiler == 'ifx' &&  matrix.os == 'windows-latest'
+        run: |
+          echo "end" >_empty.f90
+          ifx -E -fpp empty.f90 -dryrun 2>&1 | perl -lne 'print for /-D(\S+)/'
+          #ifx /logo
+          #ifx /help
+          echo "FPM_FFLAGS=/fpp" >> $env:GITHUB_ENV
+
+      - name: Set environment for ifx and not windows
+        if: matrix.compiler == 'ifx' &&  matrix.os != 'windows-latest'
+        run: |
+          echo "end" >_empty.f90
+          ifx -E -fpp empty.f90 -dryrun 2>&1 | perl -lne 'print for /-D(\S+)/'
+          ifx --version
+
+# RUN TESTS
+
+      - name: fpm test (debug)
+        if: matrix.os != 'windows-latest'
+        run: |
+          fpm test --compiler ${{ matrix.compiler }} --profile debug --verbose
+
+      - name: fpm test (release)
+        if: matrix.os != 'windows-latest'
+        run: |
+          fpm test --compiler ${{ matrix.compiler }} --profile release -- --brief
+
+      - name: fpm test (debug)
+        if: matrix.os == 'windows-latest' && matrix.compiler != 'gfortran'
+        run: |
+          fpm test --compiler ${{ matrix.compiler }} --profile debug --verbose
+
+      - name: fpm test (release)
+        if: matrix.os == 'windows-latest' && matrix.compiler != 'gfortran'
+        run: |
+          fpm test --compiler ${{ matrix.compiler }} --profile release -- --brief
+
+      - name: fpm test (debug)
+        if: matrix.os == 'windows-latest' && matrix.compiler == 'gfortran'
+        run: |
+          fpm test --compiler ${{ matrix.compiler }} --verbose --fflags="-D_WIN32 -Wall -Wextra -fmax-errors=1 -g -fcheck=bounds -fcheck=array-temps -fbacktrace -fcoarray=single -fimplicit-none -Werror=implicit-interface" 
+
+      - name: fpm test (release)
+        if: matrix.os == 'windows-latest' && matrix.compiler == 'gfortran'
+        run: |
+          fpm test --compiler ${{ matrix.compiler }} --verbose --fflags="-D_WIN32 -O3 -funroll-loops -Wimplicit-interface -fmax-errors=1 -fcoarray=single -fimplicit-none -Werror=implicit-interface -ffree-form" -- --brief
+
+  # test_cmake:
+  #   name: ${{ matrix.os }}_${{ matrix.compiler }}_cmake
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       os: [ubuntu-latest, macos-latest, windows-latest]
+  #       compiler: [gfortran, ifx, lfortran, flang-new, nvfortran]
+  #       include:
+  #         - os: ubuntu-latest
+  #           extra-packages: "cmake, ninja"
+  #         - os: windows-latest
+  #           extra-packages: "cmake, ninja"
+  #         - os: macos-latest
+  #           extra-packages: "cmake, ninja"
+  #       exclude:
+  #         - os: macos-latest
+  #           compiler: flang-new
+  #         - os: macos-latest
+  #           compiler: ifx
+  #         - os: macos-latest
+  #           compiler: nvfortran
+  #         - os: windows-latest
+  #           compiler: nvfortran
+  #   env:
+  #     TZ: UTC+04:00
+  #   steps:
+  #     - name: Setup Fortran
+  #       uses: gha3mi/setup-fortran-conda@latest
+  #       with:
+  #         compiler: ${{ matrix.compiler }}
+  #         platform: ${{ matrix.os }}
+  #         extra-packages: ${{ matrix.extra-packages }}
+
+  #     - name: cmake test (debug)
+  #       run: |
+  #         cd src
+  #         cmake -S . -B build/debug -DCMAKE_BUILD_TYPE=Debug -DCMAKE_Fortran_COMPILER=${{ matrix.compiler }} -G Ninja
+  #         cmake --build build/debug
+  #         ctest --test-dir build/debug --output-on-failure
+
+  #     - name: cmake test (release)
+  #       run: |
+  #         cd src
+  #         cmake -S . -B build/release -DCMAKE_BUILD_TYPE=Release -DCMAKE_Fortran_COMPILER=${{ matrix.compiler }} -G Ninja
+  #         cmake --build build/release
+  #         ctest --test-dir build/release --output-on-failure
+
+  doc_ford:
+    name: Generate FORD Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup and Generate FORD Documentation
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          compiler: gfortran
+          platform: ubuntu-latest
+          generate-doc-ford: true
+          ford-config: ford.md
+          ford-output-directory: docs/fpm-ford
+          ford-branch: main
+          ford-target-folder: docs/fpm-ford
+
+  doc_doxygen:
+    name: Generate Doxygen Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup and Generate Doxygen Documentation
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          compiler: gfortran
+          platform: ubuntu-latest
+          generate-doc-doxygen: true
+          doxygen-working-directory: src
+          doxygen-config: dox.in
+          doxygen-output-directory: docs/doxygen_out
+          doxygen-branch: main
+          doxygen-target-folder: docs/doxygen_out
+
+  status_fpm:
+    name: Generate STATUS.md
+    if: always()
+    needs: test_fpm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate summary
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          generate-status-fpm: true
+
+  # status_cmake:
+  #   name: Generate STATUS.md
+  #   if: always()
+  #   needs: test_cmake
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Generate summary
+  #       uses: gha3mi/setup-fortran-conda@latest
+  #       with:
+  #         generate-status-cmake: true
+
+  update_readme_table:
+    name: Update README.md status table
+    if: always()
+    # needs: [status_fpm, status_cmake]
+    needs: [status_fpm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Generate status table
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          generate-status-table: true
+
+      - name: Setup Git author
+        run: |
+          git config user.name "Seyed Ali Ghasemi" # Update with your name
+          git config user.email "info@gha3mi.com"  # Update with your email
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GH_PAT }} # Ensure you have a GitHub PAT
+          commit-message: "Update README.md status table [ci skip]"
+          branch: update/readme-status-table
+          title: "update README.md status table"
+          body: "This PR updates the CI status table in the README.md."
+          delete-branch: true
