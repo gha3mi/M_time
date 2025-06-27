@@ -1,0 +1,114 @@
+name: Setup Fortran Conda CI/CD
+
+on:
+  push:
+    branches: [main, master, dev]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  test_fpm:
+    name: ${{ matrix.os }}_${{ matrix.compiler }}_fpm
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        compiler: [gfortran, ifx, lfortran, flang-new, nvfortran]
+        include:
+          - os: ubuntu-latest
+            compiler: lfortran
+            FPM_FFLAGS: "--no-style-warnings --cpp"
+          - os: ubuntu-latest
+            compiler: flang-new
+            FPM_FFLAGS: "-cpp"
+          - os: windows-latest
+            compiler: ifx
+            FPM_FFLAGS: " /fpp"
+          - os: windows-latest
+            compiler: gfortran
+            FPM_FFLAGS: "-D_WIN32"
+        exclude:
+          - os: macos-latest
+            compiler: ifx
+          - os: macos-latest
+            compiler: flang-new
+          - os: macos-latest
+            compiler: nvfortran
+          - os: windows-latest
+            compiler: nvfortran
+    env:
+      TZ: UTC+04:00
+      FPM_FFLAGS: ${{ matrix.FPM_FFLAGS }}
+    steps:
+      - name: Setup Fortran
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          compiler: ${{ matrix.compiler }}
+          platform: ${{ matrix.os }}
+
+      - name: fpm test (debug)
+        run: fpm test --compiler ${{ matrix.compiler }} --profile debug --verbose -- --brief
+
+      - name: fpm test (release)
+        run: fpm test --compiler ${{ matrix.compiler }} --profile release --verbose -- --brief
+
+  doc_ford:
+    name: Generate FORD Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup and Generate FORD Documentation
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          compiler: gfortran
+          platform: ubuntu-latest
+          generate-doc-ford: true
+          ford-config: ford.md
+          ford-output-directory: docs/fpm-ford
+          ford-branch: main
+          ford-target-folder: docs/fpm-ford
+
+  doc_doxygen:
+    name: Generate Doxygen Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup and Generate Doxygen Documentation
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          compiler: gfortran
+          platform: ubuntu-latest
+          generate-doc-doxygen: true
+          doxygen-working-directory: src
+          doxygen-config: dox.in
+          doxygen-output-directory: docs/doxygen_out
+          doxygen-branch: main
+          doxygen-target-folder: docs/doxygen_out
+
+  status_fpm:
+    name: Generate STATUS.md
+    if: always()
+    needs: test_fpm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate summary
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          generate-status-fpm: true
+
+  update_readme_table:
+    name: Update README.md status table
+    if: always()
+    needs: [status_fpm]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update README status
+        uses: gha3mi/setup-fortran-conda@latest
+        with:
+          update-readme-table: true
+          update-readme-token: ${{ secrets.GH_PAT }}
+          update-readme-user-name: "Seyed Ali Ghasemi"
+          update-readme-user-email: "info@gha3mi.com"
