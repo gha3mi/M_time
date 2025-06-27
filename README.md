@@ -566,7 +566,9 @@ time zone can be explicitly set.  Since this library is intentionally
 designed to complement DATE_AND_TIME(3f) it adopts the same behavior.
 
 ### Status
-+ [CD/CI STATUS](docs/STATUS.md)
+
+<!-- STATUS:setup-fortran-conda:START -->
+<!-- STATUS:setup-fortran-conda:END -->
 
 ## See Also
 
