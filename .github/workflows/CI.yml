@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        compiler: [gfortran, ifx, lfortran, flang-new]
+        compiler: [gfortran, ifx, lfortran, flang-new, nvfortran]
         include:
         - os: ubuntu-latest
           extra-packages: ""
@@ -28,10 +28,10 @@ jobs:
             compiler: flang-new
           - os: macos-latest
             compiler: ifx
+          - os: macos-latest
+            compiler: nvfortran
           - os: windows-latest
-            compiler: lfortran
-          - os: windows-latest
-            compiler: flang-new
+            compiler: nvfortran
     env:
       TZ: UTC+04:00
     steps:
@@ -46,7 +46,7 @@ jobs:
           channels: conda-forge, defaults
 
       - name: Setup Fortran
-        uses: gha3mi/setup-fortran-conda@v0.2.0
+        uses: gha3mi/setup-fortran-conda@latest
         with:
           compiler: ${{ matrix.compiler }}
           platform: ${{ matrix.os }}
@@ -131,12 +131,12 @@ jobs:
       - name: fpm test (debug)
         if: matrix.os == 'windows-latest' && matrix.compiler == 'gfortran'
         run: |
-          fpm test --compiler ${{ matrix.compiler }} --verbose --fflags="-D_WIN32 -Wall -Wextra -fmax-errors=1 -g -fcheck=bounds -fcheck=array-temps -fbacktrace -fcoarray=single -fimplicit-none -Werror=implicit-interface" 
+          fpm test --compiler ${{ matrix.compiler }} --verbose --flag="-D_WIN32 -Wall -Wextra -fmax-errors=1 -g -fcheck=bounds -fcheck=array-temps -fbacktrace -fcoarray=single -fimplicit-none -Werror=implicit-interface" 
 
       - name: fpm test (release)
         if: matrix.os == 'windows-latest' && matrix.compiler == 'gfortran'
         run: |
-          fpm test --compiler ${{ matrix.compiler }} --verbose --fflags="-D_WIN32 -O3 -funroll-loops -Wimplicit-interface -fmax-errors=1 -fcoarray=single -fimplicit-none -Werror=implicit-interface -ffree-form" -- --brief
+          fpm test --compiler ${{ matrix.compiler }} --verbose --flag="-D_WIN32 -O3 -funroll-loops -Wimplicit-interface -fmax-errors=1 -fcoarray=single -fimplicit-none -Werror=implicit-interface -ffree-form" -- --brief
 
 
   summary:
