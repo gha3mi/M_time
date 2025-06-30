@@ -188,30 +188,30 @@ character(len=:),allocatable :: adjustc
 </code></pre></div>
 
 <h2 id="examples">EXAMPLES</h2>
-<div class="codehilite"><pre><span></span><code>Sample Program:
+<div class="codehilite"><pre><span></span><code><span class="nv">Sample</span> <span class="nv">Program</span>:
 
- program demo_adjustc
- use M_strings, only : adjustc
- !  using length of the input string
-    write(*,&#39;(a)&#39;)       &#39;================================&#39;
-    write(*,&#39;(a)&#39;)adjustc(&#39;centered string                 &#39;)
-    write(*,&#39;(a)&#39;)adjustc(&#39;                 centered string&#39;)
-    write(*,&#39;(a)&#39;)adjustc(&#39;  centered string               &#39;)
- !  using explicit output string length
-    write(*,&#39;(a)&#39;)repeat(&#39;=&#39;,50)
-    write(*,&#39;(a)&#39;)adjustc(&#39;this is a centered string&#39;,50)
-    write(*,&#39;(a)&#39;)repeat(&#39;=&#39;,50)
- end program demo_adjustc
+ <span class="nv">program</span> <span class="nv">demo_adjustc</span>
+ <span class="nv">use</span> <span class="nv">M_strings</span>, <span class="nv">only</span> : <span class="nv">adjustc</span>
+ <span class="o">!</span>  <span class="nv">using</span> <span class="nv">length</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">input</span> <span class="nv">string</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(a)</span><span class="s1">&#39;</span><span class="ss">)</span>       <span class="s1">&#39;</span><span class="s">================================</span><span class="s1">&#39;</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(a)</span><span class="s1">&#39;</span><span class="ss">)</span><span class="nv">adjustc</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">centered string                 </span><span class="s1">&#39;</span><span class="ss">)</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(a)</span><span class="s1">&#39;</span><span class="ss">)</span><span class="nv">adjustc</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">                 centered string</span><span class="s1">&#39;</span><span class="ss">)</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(a)</span><span class="s1">&#39;</span><span class="ss">)</span><span class="nv">adjustc</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">  centered string               </span><span class="s1">&#39;</span><span class="ss">)</span>
+ <span class="o">!</span>  <span class="nv">using</span> <span class="nv">explicit</span> <span class="nv">output</span> <span class="nv">string</span> <span class="nv">length</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(a)</span><span class="s1">&#39;</span><span class="ss">)</span><span class="nv">repeat</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">=</span><span class="s1">&#39;</span>,<span class="mi">50</span><span class="ss">)</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(a)</span><span class="s1">&#39;</span><span class="ss">)</span><span class="nv">adjustc</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">this is a centered string</span><span class="s1">&#39;</span>,<span class="mi">50</span><span class="ss">)</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(a)</span><span class="s1">&#39;</span><span class="ss">)</span><span class="nv">repeat</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">=</span><span class="s1">&#39;</span>,<span class="mi">50</span><span class="ss">)</span>
+ <span class="k">end</span> <span class="nv">program</span> <span class="nv">demo_adjustc</span>
 
-Expected output:
+<span class="nv">Expected</span> <span class="nv">output</span>:
 
- \================================
-         centered string
-         centered string
-         centered string
- \==================================================
-             this is a centered string
- \==================================================
+ \<span class="o">================================</span>
+         <span class="nv">centered</span> <span class="nv">string</span>
+         <span class="nv">centered</span> <span class="nv">string</span>
+         <span class="nv">centered</span> <span class="nv">string</span>
+ \<span class="o">==================================================</span>
+             <span class="nv">this</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">centered</span> <span class="nv">string</span>
+ \<span class="o">==================================================</span>
 </code></pre></div>
 
 <h2 id="author">AUTHOR</h2>
@@ -254,7 +254,7 @@ Expected output:
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-length~3"></span>
+              <span class="anchor" id="variable-length~2"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -291,7 +291,7 @@ Expected output:
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">pure function </span><span class="n">adjustc</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="n">length</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="k">pure function </span><span class="n">adjustc</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="n">length</span><span class="p">)</span><span class="w"></span>
 
 <span class="c">!character(len=*),parameter::ident_32=&quot;@(#)M_strings::adjustc(3f): center text&quot;</span>
 
@@ -305,7 +305,7 @@ Expected output:
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">string</span><span class="w">         </span><span class="c">! input string to trim and center</span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="k">optional</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">length</span><span class="w">         </span><span class="c">! line length to center text in</span>
 <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">adjustc</span><span class="w">        </span><span class="c">! output string</span>
-<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">inlen</span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">inlen</span><span class="w"></span>
 <span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">ileft</span><span class="w">          </span><span class="c">! left edge of string if it is centered</span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="w">   </span><span class="k">if</span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">length</span><span class="p">))</span><span class="k">then</span><span class="w">                     </span><span class="c">! optional length</span>
@@ -314,7 +314,7 @@ Expected output:
 <span class="w">         </span><span class="n">inlen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="w">                     </span><span class="c">! could not use input value, fall back to length of input string</span>
 <span class="w">      </span><span class="k">endif</span>
 <span class="k">   else</span><span class="w">                                        </span><span class="c">! output length was not explicitly specified, use input string length</span>
-<span class="w">      </span><span class="n">inlen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="w">      </span><span class="n">inlen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="k">endif</span>
 <span class="k">   allocate</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">inlen</span><span class="p">)</span><span class="kd">::</span><span class="w"> </span><span class="n">adjustc</span><span class="p">)</span><span class="w">    </span><span class="c">! create output at requested length</span>
 <span class="w">   </span><span class="n">adjustc</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">inlen</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="w">                        </span><span class="c">! initialize output string to all blanks</span>
@@ -325,7 +325,7 @@ Expected output:
 <span class="w">   </span><span class="k">else</span><span class="w">                                        </span><span class="c">! input string will not fit centered in output string</span>
 <span class="w">      </span><span class="n">adjustc</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">inlen</span><span class="p">)</span><span class="o">=</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">string</span><span class="p">)</span><span class="w">         </span><span class="c">! copy as much of input to output as can</span>
 <span class="w">   </span><span class="k">endif</span>
-<span class="k">end function </span><span class="n">adjustc</span>
+<span class="k">end function </span><span class="n">adjustc</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -349,7 +349,7 @@ Expected output:
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

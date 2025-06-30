@@ -131,9 +131,9 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/demo_u2d.html#variable-dat~22">dat</a>
+            <a class="list-group-item" href="../program/demo_u2d.html#variable-dat~36">dat</a>
             <a class="list-group-item" href="../program/demo_u2d.html#variable-dp~6">dp</a>
-            <a class="list-group-item" href="../program/demo_u2d.html#variable-today">today</a>
+            <a class="list-group-item" href="../program/demo_u2d.html#variable-today~3">today</a>
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-dat~22"></span>
+              <span class="anchor" id="variable-dat~36"></span>
               integer
             </td>
             <td>
@@ -231,7 +231,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-today"></span>
+              <span class="anchor" id="variable-today~3"></span>
               real(kind=realtime)
             </td>
             <td>
@@ -261,22 +261,22 @@ parameter
 
     <section>
     <h2 id="src">Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_u2d</span>
-<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">u2d</span><span class="p">,</span><span class="w"> </span><span class="n">d2u</span><span class="p">,</span><span class="w"> </span><span class="n">fmtdate</span><span class="p">,</span><span class="w"> </span><span class="n">realtime</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_u2d</span><span class="w"></span>
+<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">u2d</span><span class="p">,</span><span class="w"> </span><span class="n">d2u</span><span class="p">,</span><span class="w"> </span><span class="n">fmtdate</span><span class="p">,</span><span class="w"> </span><span class="n">realtime</span><span class="w"></span>
 <span class="w">      </span><span class="k">implicit none</span>
-<span class="k">      </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">realtime</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">today</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dat</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="k">      </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">realtime</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">today</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dat</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
 <span class="w">         </span><span class="c">! get the date using intrinsic</span>
-<span class="w">         </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span><span class="w"></span>
 <span class="w">         </span><span class="c">! convert today to Julian Date</span>
-<span class="w">         </span><span class="n">today</span><span class="o">=</span><span class="n">d2u</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Today=&#39;</span><span class="p">,</span><span class="n">fmtdate</span><span class="p">(</span><span class="n">u2d</span><span class="p">(</span><span class="n">today</span><span class="p">))</span>
+<span class="w">         </span><span class="n">today</span><span class="o">=</span><span class="n">d2u</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Today=&#39;</span><span class="p">,</span><span class="n">fmtdate</span><span class="p">(</span><span class="n">u2d</span><span class="p">(</span><span class="n">today</span><span class="p">))</span><span class="w"></span>
 <span class="w">         </span><span class="c">! subtract day</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Yesterday=&#39;</span><span class="p">,</span><span class="n">fmtdate</span><span class="p">(</span><span class="n">u2d</span><span class="p">(</span><span class="n">today</span><span class="o">-</span><span class="mi">8640</span><span class="mf">0.0_dp</span><span class="p">))</span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Yesterday=&#39;</span><span class="p">,</span><span class="n">fmtdate</span><span class="p">(</span><span class="n">u2d</span><span class="p">(</span><span class="n">today</span><span class="o">-</span><span class="mi">8640</span><span class="mf">0.0_dp</span><span class="p">))</span><span class="w"></span>
 <span class="w">         </span><span class="c">! add day</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Tomorrow=&#39;</span><span class="p">,</span><span class="n">fmtdate</span><span class="p">(</span><span class="n">u2d</span><span class="p">(</span><span class="n">today</span><span class="o">+</span><span class="mi">8640</span><span class="mf">0.0_dp</span><span class="p">))</span>
-<span class="w">      </span><span class="k">end program </span><span class="n">demo_u2d</span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Tomorrow=&#39;</span><span class="p">,</span><span class="n">fmtdate</span><span class="p">(</span><span class="n">u2d</span><span class="p">(</span><span class="n">today</span><span class="o">+</span><span class="mi">8640</span><span class="mf">0.0_dp</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">end program </span><span class="n">demo_u2d</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -299,7 +299,7 @@ parameter
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

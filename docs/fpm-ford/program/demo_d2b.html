@@ -131,11 +131,11 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/demo_d2b.html#variable-array">array</a>
-            <a class="list-group-item" href="../program/demo_d2b.html#variable-bas~2">bas</a>
-            <a class="list-group-item" href="../program/demo_d2b.html#variable-dat~16">dat</a>
-            <a class="list-group-item" href="../program/demo_d2b.html#variable-i~6">i</a>
-            <a class="list-group-item" href="../program/demo_d2b.html#variable-j~2">j</a>
+            <a class="list-group-item" href="../program/demo_d2b.html#variable-array~4">array</a>
+            <a class="list-group-item" href="../program/demo_d2b.html#variable-bas~6">bas</a>
+            <a class="list-group-item" href="../program/demo_d2b.html#variable-dat~58">dat</a>
+            <a class="list-group-item" href="../program/demo_d2b.html#variable-i~32">i</a>
+            <a class="list-group-item" href="../program/demo_d2b.html#variable-j~4">j</a>
         </div>
       </div>
     </div>
@@ -201,7 +201,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-array"></span>
+              <span class="anchor" id="variable-array~4"></span>
               integer,
             </td>
             <td>
@@ -217,7 +217,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-bas~2"></span>
+              <span class="anchor" id="variable-bas~6"></span>
               type(BAStime)
             </td>
             <td>
@@ -233,7 +233,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-dat~16"></span>
+              <span class="anchor" id="variable-dat~58"></span>
               integer
             </td>
             <td>
@@ -249,7 +249,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~6"></span>
+              <span class="anchor" id="variable-i~32"></span>
               integer
             </td>
             <td>
@@ -265,7 +265,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~2"></span>
+              <span class="anchor" id="variable-j~4"></span>
               integer
             </td>
             <td>
@@ -295,18 +295,18 @@ parameter
 
     <section>
     <h2 id="src">Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_d2b</span>
-<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">d2b</span><span class="p">,</span><span class="w"> </span><span class="n">BAStime</span><span class="p">,</span><span class="w"> </span><span class="n">d2j</span><span class="p">,</span><span class="w"> </span><span class="n">d2m</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_d2b</span><span class="w"></span>
+<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">d2b</span><span class="p">,</span><span class="w"> </span><span class="n">BAStime</span><span class="p">,</span><span class="w"> </span><span class="n">d2j</span><span class="p">,</span><span class="w"> </span><span class="n">d2m</span><span class="w"></span>
 <span class="w">      </span><span class="k">implicit none</span>
-<span class="k">      </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dat</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">BAStime</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bas</span>
+<span class="k">      </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dat</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">BAStime</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bas</span><span class="w"></span>
 <span class="w">      </span><span class="c">!                            Modified Julian Dates</span>
 <span class="w">      </span><span class="c">!</span>
 <span class="w">      </span><span class="c">!   To use this table, add the day-of-month to the tabulated entry.</span>
 <span class="w">      </span><span class="c">!   For example, 30 Jan 2000 = MJD 51573.</span>
 <span class="w">      </span><span class="c">! __________________________________________________________________</span>
 <span class="w">      </span><span class="c">!  2000  2001  2002  2003  2004  2005  2006  2007  2008  2009</span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">2000</span><span class="p">:</span><span class="mi">2009</span><span class="p">)</span><span class="o">=</span><span class="nb">reshape</span><span class="p">([</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="mi">2000</span><span class="p">:</span><span class="mi">2009</span><span class="p">)</span><span class="o">=</span><span class="nb">reshape</span><span class="p">([</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
 <span class="w">       </span><span class="mi">51543</span><span class="p">,</span><span class="mi">51909</span><span class="p">,</span><span class="mi">52274</span><span class="p">,</span><span class="mi">52639</span><span class="p">,</span><span class="mi">53004</span><span class="p">,</span><span class="mi">53370</span><span class="p">,</span><span class="mi">53735</span><span class="p">,</span><span class="mi">54100</span><span class="p">,</span><span class="mi">54465</span><span class="p">,</span><span class="mi">54831</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! Jan</span>
 <span class="w">       </span><span class="mi">51574</span><span class="p">,</span><span class="mi">51940</span><span class="p">,</span><span class="mi">52305</span><span class="p">,</span><span class="mi">52670</span><span class="p">,</span><span class="mi">53035</span><span class="p">,</span><span class="mi">53401</span><span class="p">,</span><span class="mi">53766</span><span class="p">,</span><span class="mi">54131</span><span class="p">,</span><span class="mi">54496</span><span class="p">,</span><span class="mi">54862</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! Feb</span>
 <span class="w">       </span><span class="mi">51603</span><span class="p">,</span><span class="mi">51968</span><span class="p">,</span><span class="mi">52333</span><span class="p">,</span><span class="mi">52698</span><span class="p">,</span><span class="mi">53064</span><span class="p">,</span><span class="mi">53429</span><span class="p">,</span><span class="mi">53794</span><span class="p">,</span><span class="mi">54159</span><span class="p">,</span><span class="mi">54525</span><span class="p">,</span><span class="mi">54890</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! Mar</span>
@@ -319,26 +319,26 @@ parameter
 <span class="w">       </span><span class="mi">51817</span><span class="p">,</span><span class="mi">52182</span><span class="p">,</span><span class="mi">52547</span><span class="p">,</span><span class="mi">52912</span><span class="p">,</span><span class="mi">53278</span><span class="p">,</span><span class="mi">53643</span><span class="p">,</span><span class="mi">54008</span><span class="p">,</span><span class="mi">54373</span><span class="p">,</span><span class="mi">54739</span><span class="p">,</span><span class="mi">55104</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! Oct</span>
 <span class="w">       </span><span class="mi">51848</span><span class="p">,</span><span class="mi">52213</span><span class="p">,</span><span class="mi">52578</span><span class="p">,</span><span class="mi">52943</span><span class="p">,</span><span class="mi">53309</span><span class="p">,</span><span class="mi">53674</span><span class="p">,</span><span class="mi">54039</span><span class="p">,</span><span class="mi">54404</span><span class="p">,</span><span class="mi">54770</span><span class="p">,</span><span class="mi">55135</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! Nov</span>
 <span class="w">       </span><span class="mi">51878</span><span class="p">,</span><span class="mi">52243</span><span class="p">,</span><span class="mi">52608</span><span class="p">,</span><span class="mi">52973</span><span class="p">,</span><span class="mi">53339</span><span class="p">,</span><span class="mi">53704</span><span class="p">,</span><span class="mi">54069</span><span class="p">,</span><span class="mi">54434</span><span class="p">,</span><span class="mi">54800</span><span class="p">,</span><span class="mi">55165</span><span class="p">],&amp;</span><span class="w"> </span><span class="c">! Dec</span>
-<span class="w">       </span><span class="nb">shape</span><span class="o">=</span><span class="nb">shape</span><span class="p">(</span><span class="k">array</span><span class="p">),</span><span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="w">       </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span>
-<span class="w">         </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot; Today is:&quot;,*(i0:,&quot;:&quot;))&#39;</span><span class="p">)</span><span class="n">dat</span>
-<span class="w">         </span><span class="n">bas</span><span class="o">=</span><span class="n">d2b</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Baseday and Seconds is&#39;</span><span class="p">,</span><span class="n">bas</span>
+<span class="w">       </span><span class="nb">shape</span><span class="o">=</span><span class="nb">shape</span><span class="p">(</span><span class="k">array</span><span class="p">),</span><span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="w"></span>
+<span class="w">       </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot; Today is:&quot;,*(i0:,&quot;:&quot;))&#39;</span><span class="p">)</span><span class="n">dat</span><span class="w"></span>
+<span class="w">         </span><span class="n">bas</span><span class="o">=</span><span class="n">d2b</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Baseday and Seconds is&#39;</span><span class="p">,</span><span class="n">bas</span><span class="w"></span>
 <span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Baseday is&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">bas</span><span class="p">%</span><span class="n">base_day</span><span class="w"> </span><span class="c">! whole days since the MJD Epoch date</span>
 <span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Seconds is&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">bas</span><span class="p">%</span><span class="n">secs</span><span class="w">     </span><span class="c">! offset in seconds from start of BASE_DAY</span>
 <span class="w">         </span><span class="c">! print any date that does not match regression test values</span>
-<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2009</span>
-<span class="w">          </span><span class="k">do </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2009</span><span class="w"></span>
+<span class="w">          </span><span class="k">do </span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="w"></span>
 <span class="w">           </span><span class="c">!dat=[ year,month,day,timezone,hour,minutes,seconds,milliseconds]</span>
 <span class="w">           </span><span class="n">dat</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="w">   </span><span class="c">! first day of month</span>
-<span class="w">           </span><span class="n">bas</span><span class="o">=</span><span class="n">d2b</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span>
+<span class="w">           </span><span class="n">bas</span><span class="o">=</span><span class="n">d2b</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="w"></span>
 <span class="w">           </span><span class="k">if</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mf">1.</span><span class="n">ne</span><span class="p">.</span><span class="n">bas</span><span class="p">%</span><span class="n">base_day</span><span class="p">)</span><span class="k">then</span>
-<span class="k">              write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">d2b</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span><span class="n">d2m</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span><span class="n">d2j</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="o">-</span><span class="mi">240000</span><span class="mf">0.5</span>
+<span class="k">              write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="k">array</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">d2b</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span><span class="n">d2m</span><span class="p">(</span><span class="n">dat</span><span class="p">),</span><span class="n">d2j</span><span class="p">(</span><span class="n">dat</span><span class="p">)</span><span class="o">-</span><span class="mi">240000</span><span class="mf">0.5</span><span class="w"></span>
 <span class="w">           </span><span class="k">endif</span>
 <span class="k">          enddo</span>
 <span class="k">         enddo</span>
-<span class="k">      end program </span><span class="n">demo_d2b</span>
+<span class="k">      end program </span><span class="n">demo_d2b</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -361,7 +361,7 @@ parameter
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

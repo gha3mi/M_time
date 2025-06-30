@@ -233,19 +233,19 @@ programs for each procedure are included in the package.</p>
 <h2 id="example">Example</h2>
 <p>A simple program that formats the current time as desired, and displays
 the built-in help text for the formatting options is as simple as</p>
-<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="k">program </span><span class="n">demo_now</span>
-<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">now</span>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="k">program </span><span class="n">demo_now</span><span class="w"></span>
+<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">now</span><span class="w"></span>
 <span class="w">      </span><span class="k">implicit none</span>
 <span class="k">       write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;The current date is %w, %l %d, %Y %H:%m:%s %N&quot;</span><span class="p">)</span><span class="w"> </span><span class="c">! % macros</span>
 <span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;year-month-day&quot;</span><span class="p">)</span><span class="w"> </span><span class="c">! or, if macros not found then keywords</span>
 <span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;Y-M-D h:m:s&quot;</span><span class="p">)</span><span class="w">    </span><span class="c">! and if that is not found, abbreviations</span>
-<span class="w">       </span><span class="k">call </span><span class="n">locale</span><span class="p">(</span><span class="s1">&#39;french&#39;</span><span class="p">)</span>
-<span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;%W, %L %D, %Y %h:%m:%s &quot;</span><span class="p">)</span>
-<span class="w">       </span><span class="k">call </span><span class="n">locale</span><span class="p">(</span><span class="s1">&#39;slovak&#39;</span><span class="p">)</span>
-<span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;%W, %L %D, %Y %h:%m:%s &quot;</span><span class="p">)</span>
-<span class="w">       </span><span class="k">call </span><span class="n">locale</span><span class="p">(</span><span class="s1">&#39;spanish&#39;</span><span class="p">)</span>
-<span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;%W, %L %D, %Y %h:%m:%s &quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="k">end program </span><span class="n">demo_now</span>
+<span class="w">       </span><span class="k">call </span><span class="n">locale</span><span class="p">(</span><span class="s1">&#39;french&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;%W, %L %D, %Y %h:%m:%s &quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">call </span><span class="n">locale</span><span class="p">(</span><span class="s1">&#39;slovak&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;%W, %L %D, %Y %h:%m:%s &quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">call </span><span class="n">locale</span><span class="p">(</span><span class="s1">&#39;spanish&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="n">now</span><span class="p">(</span><span class="s2">&quot;%W, %L %D, %Y %h:%m:%s &quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">end program </span><span class="n">demo_now</span><span class="w"></span>
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>    The current date is Wed, Feb 5th, 2025 8:57:07 AM
@@ -259,12 +259,12 @@ the built-in help text for the formatting options is as simple as</p>
 <p>A built-in description of the macro and keyword substitution rules
 can be called to easily add the information to program help messages
 and documentation.</p>
-<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="k">program </span><span class="n">builtin_macrohelp</span>
-<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">fmtdate_usage</span>
-<span class="w">      </span><span class="k">implicit none</span>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="k">program </span><span class="n">builtin_macrohelp</span><span class="w"></span>
+<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">fmtdate_usage</span><span class="w"></span>
+<span class="w">      </span><span class="k">implicit none</span><span class="w"></span>
 <span class="w">      </span><span class="c">! built-in usage descriptions can be displayed as well</span>
 <span class="w">       </span><span class="k">call </span><span class="n">fmtdate_usage</span><span class="p">()</span><span class="w"> </span><span class="c">! see all formatting options</span>
-<span class="w">      </span><span class="k">end program </span><span class="n">builtin_macrohelp</span>
+<span class="w">      </span><span class="k">end program </span><span class="n">builtin_macrohelp</span><span class="w"></span>
 </code></pre></div>
 
 <div class="codehilite"><pre><span></span><code>   Description                                        Example
@@ -451,17 +451,17 @@ the document pages (in the example/ sub-directory).</p>
 <h2 id="_3"><img alt="fpm" src="docs/images/fpm_logo.gif"></h2>
 <h2 id="download-and-build-using-fpm">Download and Build using fpm</h2>
 <p>To download the github repository and build and test it with fpm :</p>
-<div class="codehilite"><pre><span></span><code><span class="w">     </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/urbanjost/M_time.git
-<span class="w">     </span><span class="nb">cd</span><span class="w"> </span>M_time
-<span class="w">     </span><span class="c1"># on MSWindows:</span>
-<span class="w">     </span>fpm<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-flag<span class="w"> </span><span class="s2">&quot;-D _WIN32&quot;</span>
-<span class="w">     </span><span class="c1"># on other platforms</span>
-<span class="w">     </span>fpm<span class="w"> </span><span class="nb">test</span>
+<div class="codehilite"><pre><span></span><code>     git clone https://github.com/urbanjost/M_time.git
+     <span class="nb">cd</span> M_time
+     <span class="c1"># on MSWindows:</span>
+     fpm <span class="nb">test</span> -flag <span class="s2">&quot;-D _WIN32&quot;</span>
+     <span class="c1"># on other platforms</span>
+     fpm <span class="nb">test</span>
 </code></pre></div>
 
 <p>or just list it as a dependency in your fpm.toml project file.</p>
-<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">[dependencies]</span>
-<span class="w">     </span><span class="n">M_time</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/urbanjost/M_time.git&quot;</span><span class="w"> </span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">[dependencies]</span><span class="w"></span>
+<span class="w">     </span><span class="n">M_time</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://github.com/urbanjost/M_time.git&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
 <hr>
@@ -469,57 +469,57 @@ the document pages (in the example/ sub-directory).</p>
 <h2 id="download-and-build-using-cmake">Download and Build using cmake</h2>
 <p>To download the github repository and build and install with cmake
 (you may wish to change the install path in src/CMakeLists.txt first) :</p>
-<div class="codehilite"><pre><span></span><code><span class="w">      </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/urbanjost/M_time.git
-<span class="w">      </span><span class="nb">cd</span><span class="w"> </span>M_time
+<div class="codehilite"><pre><span></span><code>      git clone https://github.com/urbanjost/M_time.git
+      <span class="nb">cd</span> M_time
 
-<span class="w">      </span><span class="c1"># Create a Build Directory:</span>
-<span class="w">      </span>mkdir<span class="w"> </span>-p<span class="w"> </span>build
+      <span class="c1"># Create a Build Directory:</span>
+      mkdir -p build
 
-<span class="w">      </span><span class="nb">cd</span><span class="w"> </span>build
-<span class="w">      </span>cmake<span class="w"> </span>-S<span class="w"> </span>../src<span class="w"> </span>-B<span class="w"> </span>.
+      <span class="nb">cd</span> build
+      cmake -S ../src -B .
 
-<span class="w">      </span><span class="c1"># Configure the Build, specifying your preferred compiler (ifort, flang, etc.):</span>
-<span class="w">      </span>cmake<span class="w"> </span>.<span class="w"> </span>-DCMAKE_Fortran_COMPILER<span class="o">=</span>gfortran
+      <span class="c1"># Configure the Build, specifying your preferred compiler (ifort, flang, etc.):</span>
+      cmake . -DCMAKE_Fortran_COMPILER<span class="o">=</span>gfortran
 
-<span class="w">      </span><span class="c1"># Build the Project:</span>
-<span class="w">      </span>cmake<span class="w"> </span>--build<span class="w"> </span>.
+      <span class="c1"># Build the Project:</span>
+      cmake --build .
 
-<span class="w">      </span><span class="c1">#This creates:</span>
-<span class="w">      </span><span class="c1">#</span>
-<span class="w">      </span><span class="c1">#    build/lib/libM_time.a (the static library).</span>
-<span class="w">      </span><span class="c1">#    build/include/*.mod (module files).</span>
-<span class="w">      </span><span class="c1">#    build/test/* (test executables).</span>
-<span class="w">      </span><span class="c1">#    build/example/* (example executables).</span>
+      <span class="c1">#This creates:</span>
+      <span class="c1">#</span>
+      <span class="c1">#    build/lib/libM_time.a (the static library).</span>
+      <span class="c1">#    build/include/*.mod (module files).</span>
+      <span class="c1">#    build/test/* (test executables).</span>
+      <span class="c1">#    build/example/* (example executables).</span>
 
-<span class="w">      </span><span class="c1"># OPTIONAL SECTION:</span>
+      <span class="c1"># OPTIONAL SECTION:</span>
 
-<span class="w">      </span><span class="c1"># Verify build</span>
-<span class="w">      </span>ls<span class="w"> </span>build/lib/libM_time.a
-<span class="w">      </span>ls<span class="w"> </span>build/include/*.mod
-<span class="w">      </span>ls<span class="w"> </span>build/test/*
-<span class="w">      </span>ls<span class="w"> </span>build/example/*
+      <span class="c1"># Verify build</span>
+      ls build/lib/libM_time.a
+      ls build/include/*.mod
+      ls build/test/*
+      ls build/example/*
 
-<span class="w">      </span><span class="c1">#Optionally Run Tests and Examples:</span>
-<span class="w">      </span><span class="k">for</span><span class="w"> </span>name<span class="w"> </span><span class="k">in</span><span class="w"> </span>./test/*<span class="w"> </span>./example/*
-<span class="w">      </span><span class="k">do</span>
-<span class="w">         </span><span class="nv">$name</span>
-<span class="w">      </span><span class="k">done</span>
+      <span class="c1">#Optionally Run Tests and Examples:</span>
+      <span class="k">for</span> name <span class="k">in</span> ./test/* ./example/*
+      <span class="k">do</span>
+         <span class="nv">$name</span>
+      <span class="k">done</span>
 
-<span class="w">      </span><span class="c1">#Install (Optional):</span>
-<span class="w">      </span><span class="c1"># This installs the library and module files to the system</span>
-<span class="w">      </span><span class="c1"># (e.g., /usr/local/lib/ and /usr/local/include/).</span>
-<span class="w">      </span>cmake<span class="w"> </span>--install<span class="w"> </span>.
+      <span class="c1">#Install (Optional):</span>
+      <span class="c1"># This installs the library and module files to the system</span>
+      <span class="c1"># (e.g., /usr/local/lib/ and /usr/local/include/).</span>
+      cmake --install .
 
-<span class="w">      </span><span class="c1"># if you have insufficient permissions sudo(1) may be required</span>
-<span class="w">      </span><span class="c1"># to perform the install</span>
-<span class="w">      </span><span class="c1">#sudo cmake --install .</span>
+      <span class="c1"># if you have insufficient permissions sudo(1) may be required</span>
+      <span class="c1"># to perform the install</span>
+      <span class="c1">#sudo cmake --install .</span>
 
-<span class="w">      </span><span class="c1"># Verify installation</span>
-<span class="w">      </span>ls<span class="w"> </span>/usr/local/lib/libM_time.a
-<span class="w">      </span>ls<span class="w"> </span>/usr/local/include/*.mod
+      <span class="c1"># Verify installation</span>
+      ls /usr/local/lib/libM_time.a
+      ls /usr/local/include/*.mod
 
-<span class="w">      </span><span class="c1"># Cleaning Up: To clean artifacts, remove the build/ directory:</span>
-<span class="w">      </span>rm<span class="w"> </span>-rf<span class="w"> </span>build
+      <span class="c1"># Cleaning Up: To clean artifacts, remove the build/ directory:</span>
+      rm -rf build
 </code></pre></div>
 
 <hr>
@@ -609,10 +609,10 @@ in Universal Time (UTC).</p>
 &ldquo;<em>BAStime</em>&rdquo;, containing the number of days since the beginning of the MJD
 Epoch and a double representing the seconds offset from the start of
 this day.</p>
-<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">type </span><span class="n">BAStime</span>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">type </span><span class="n">BAStime</span><span class="w"></span>
 <span class="w">      </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">base_day</span><span class="w">       </span><span class="c">! number of days since the MJD Epoch date</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">real64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">secs</span><span class="w"> </span><span class="c">! seconds from start of base_day</span>
-<span class="w">   </span><span class="k">end type </span><span class="n">BAStime</span>
+<span class="w">   </span><span class="k">end type </span><span class="n">BAStime</span><span class="w"></span>
 </code></pre></div>
 
 <p>This allows for storing a date at a higher precision that the other
@@ -658,9 +658,9 @@ that contains a current time zone, but does not specify how a current
 time zone can be explicitly set.  Since this library is intentionally
 designed to complement DATE_AND_TIME(3f) it adopts the same behavior.</p>
 <h3 id="status">Status</h3>
-<ul>
-<li><a href="docs/STATUS.md">CD/CI STATUS</a></li>
-</ul>
+<!-- STATUS:setup-fortran-conda:START -->
+<!-- STATUS:setup-fortran-conda:END -->
+
 <h2 id="see-also">See Also</h2>
 <p>The ISO-8601 standard is often used for business-related transactions.</p>
 <p>There are (of course) the C/C++ intrinsics which provide much of the same
@@ -765,7 +765,7 @@ http://plplot.sourceforge.net/docbook-manual/plplot-html-5.15.0/enhancement-libr
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

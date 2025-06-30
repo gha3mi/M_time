@@ -131,9 +131,9 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/demo_date_to_julian.html#variable-dat~62">dat</a>
-            <a class="list-group-item" href="../program/demo_date_to_julian.html#variable-ierr~30">ierr</a>
-            <a class="list-group-item" href="../program/demo_date_to_julian.html#variable-juliandate~6">juliandate</a>
+            <a class="list-group-item" href="../program/demo_date_to_julian.html#variable-dat~47">dat</a>
+            <a class="list-group-item" href="../program/demo_date_to_julian.html#variable-ierr~17">ierr</a>
+            <a class="list-group-item" href="../program/demo_date_to_julian.html#variable-juliandate~3">juliandate</a>
         </div>
       </div>
     </div>
@@ -199,7 +199,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-dat~62"></span>
+              <span class="anchor" id="variable-dat~47"></span>
               integer
             </td>
             <td>
@@ -215,7 +215,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~30"></span>
+              <span class="anchor" id="variable-ierr~17"></span>
               integer
             </td>
             <td>
@@ -231,7 +231,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-juliandate~6"></span>
+              <span class="anchor" id="variable-juliandate~3"></span>
               real(kind=realtime)
             </td>
             <td>
@@ -261,21 +261,21 @@
 
     <section>
     <h2 id="src">Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_date_to_julian</span>
-<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">date_to_julian</span><span class="p">,</span><span class="n">realtime</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_date_to_julian</span><span class="w"></span>
+<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">date_to_julian</span><span class="p">,</span><span class="n">realtime</span><span class="w"></span>
 <span class="w">      </span><span class="k">implicit none</span>
-<span class="k">      </span><span class="kt">integer</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">dat</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">realtime</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">juliandate</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span>
+<span class="k">      </span><span class="kt">integer</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">dat</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">realtime</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">juliandate</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span><span class="w"></span>
 <span class="w">         </span><span class="c">! generate DAT array</span>
-<span class="w">         </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span><span class="w"></span>
 <span class="w">         </span><span class="c">! show DAT array</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot; Today is:&quot;,*(i0:,&quot;:&quot;))&#39;</span><span class="p">)</span><span class="n">dat</span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(&quot; Today is:&quot;,*(i0:,&quot;:&quot;))&#39;</span><span class="p">)</span><span class="n">dat</span><span class="w"></span>
 <span class="w">         </span><span class="c">! convert DAT to Julian Date</span>
-<span class="w">         </span><span class="k">call </span><span class="n">date_to_julian</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="n">juliandate</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Julian Date is &#39;</span><span class="p">,</span><span class="n">juliandate</span>
-<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;ierr is &#39;</span><span class="p">,</span><span class="n">ierr</span>
-<span class="w">      </span><span class="k">end program </span><span class="n">demo_date_to_julian</span>
+<span class="w">         </span><span class="k">call </span><span class="n">date_to_julian</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="n">juliandate</span><span class="p">,</span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;Julian Date is &#39;</span><span class="p">,</span><span class="n">juliandate</span><span class="w"></span>
+<span class="w">         </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;ierr is &#39;</span><span class="p">,</span><span class="n">ierr</span><span class="w"></span>
+<span class="w">      </span><span class="k">end program </span><span class="n">demo_date_to_julian</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -298,7 +298,7 @@
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

@@ -131,10 +131,10 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/demo_dow.html#variable-dat~5">dat</a>
-            <a class="list-group-item" href="../program/demo_dow.html#variable-day">day</a>
-            <a class="list-group-item" href="../program/demo_dow.html#variable-ierr~2">ierr</a>
-            <a class="list-group-item" href="../program/demo_dow.html#variable-weekday">weekday</a>
+            <a class="list-group-item" href="../program/demo_dow.html#variable-dat~46">dat</a>
+            <a class="list-group-item" href="../program/demo_dow.html#variable-day~3">day</a>
+            <a class="list-group-item" href="../program/demo_dow.html#variable-ierr~16">ierr</a>
+            <a class="list-group-item" href="../program/demo_dow.html#variable-weekday~3">weekday</a>
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-dat~5"></span>
+              <span class="anchor" id="variable-dat~46"></span>
               integer
             </td>
             <td>
@@ -216,7 +216,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-day"></span>
+              <span class="anchor" id="variable-day~3"></span>
               character(len=9)
             </td>
             <td>
@@ -232,7 +232,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~2"></span>
+              <span class="anchor" id="variable-ierr~16"></span>
               integer
             </td>
             <td>
@@ -248,7 +248,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-weekday"></span>
+              <span class="anchor" id="variable-weekday~3"></span>
               integer
             </td>
             <td>
@@ -278,19 +278,19 @@
 
     <section>
     <h2 id="src">Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_dow</span>
-<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">dow</span>
+    <div class="hl codehilite"><pre><span></span><span class="w">      </span><span class="k">program </span><span class="n">demo_dow</span><span class="w"></span>
+<span class="w">      </span><span class="k">use </span><span class="n">M_time</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">dow</span><span class="w"></span>
 <span class="w">      </span><span class="k">implicit none</span>
 <span class="k">      </span><span class="kt">integer</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">dat</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w">     </span><span class="c">! input date array</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">weekday</span>
-<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">day</span>
-<span class="w">      </span><span class="kt">integer</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span>
-<span class="w">        </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">dow</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">weekday</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span>
-<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a,i0)&#39;</span><span class="p">)</span><span class="s1">&#39;weekday=&#39;</span><span class="p">,</span><span class="n">weekday</span>
-<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a,a)&#39;</span><span class="p">)</span><span class="s1">&#39;day=&#39;</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
-<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a,i0)&#39;</span><span class="p">)</span><span class="s1">&#39;ierr=&#39;</span><span class="p">,</span><span class="n">ierr</span>
-<span class="w">      </span><span class="k">end program </span><span class="n">demo_dow</span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">weekday</span><span class="w"></span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">day</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span><span class="w"></span>
+<span class="w">        </span><span class="k">call </span><span class="nb">date_and_time</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">dat</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">call </span><span class="n">dow</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="w"> </span><span class="n">weekday</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a,i0)&#39;</span><span class="p">)</span><span class="s1">&#39;weekday=&#39;</span><span class="p">,</span><span class="n">weekday</span><span class="w"></span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a,a)&#39;</span><span class="p">)</span><span class="s1">&#39;day=&#39;</span><span class="p">,</span><span class="nb">trim</span><span class="p">(</span><span class="n">day</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a,i0)&#39;</span><span class="p">)</span><span class="s1">&#39;ierr=&#39;</span><span class="p">,</span><span class="n">ierr</span><span class="w"></span>
+<span class="w">      </span><span class="k">end program </span><span class="n">demo_dow</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -313,7 +313,7 @@
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

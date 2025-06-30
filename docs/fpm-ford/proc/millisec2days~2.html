@@ -96,15 +96,15 @@
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/howlong.f90"> Source File</a>
+              <a href="../src/timethis.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/howlong.f90.html'>howlong.f90</a></li>
-                <li class="breadcrumb-item"><a href='../program/howlong_exe.html'>howlong_exe</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/timethis.f90.html'>timethis.f90</a></li>
+                <li class="breadcrumb-item"><a href='../program/timethis_exe.html'>TimeThis_exe</a></li>
             <li class="breadcrumb-item active" aria-current="page">millisec2days</li>
           </ol>
         </nav>
@@ -138,7 +138,7 @@
             <a class="list-group-item" href="../proc/millisec2days~2.html#variable-one_minute~2">ONE_MINUTE</a>
             <a class="list-group-item" href="../proc/millisec2days~2.html#variable-days~2">days</a>
             <a class="list-group-item" href="../proc/millisec2days~2.html#variable-hours~2">hours</a>
-            <a class="list-group-item" href="../proc/millisec2days~2.html#variable-left~2">left</a>
+            <a class="list-group-item" href="../proc/millisec2days~2.html#variable-left~3">left</a>
             <a class="list-group-item" href="../proc/millisec2days~2.html#variable-minutes~2">minutes</a>
             <a class="list-group-item" href="../proc/millisec2days~2.html#variable-scratch~2">scratch</a>
             <a class="list-group-item" href="../proc/millisec2days~2.html#variable-secsleft~2">secsleft</a>
@@ -321,7 +321,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-left~2"></span>
+              <span class="anchor" id="variable-left~3"></span>
               integer(kind=int64),
             </td>
               <td>public</td>
@@ -403,24 +403,24 @@ parameter
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">function </span><span class="n">millisec2days</span><span class="p">(</span><span class="n">milliseconds</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dhms</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="k">function </span><span class="n">millisec2days</span><span class="p">(</span><span class="n">milliseconds</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">dhms</span><span class="p">)</span><span class="w"></span>
 <span class="c">! @(#) M_time millisec2days(3f) converts milliseconds to string showing days of form D-HH:MM:SS.SSS</span>
-<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">milliseconds</span>
-<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">days</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">secsleft</span><span class="p">,</span><span class="w"> </span><span class="n">left</span>
-<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ONE_DAY</span><span class="o">=</span><span class="mi">86400</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_HOUR</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_MINUTE</span><span class="o">=</span><span class="mi">60</span>
-<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">dhms</span>
-<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">scratch</span>
-<span class="w">   </span><span class="n">secsleft</span><span class="o">=</span><span class="n">milliseconds</span><span class="o">/</span><span class="mi">1000</span>
-<span class="w">   </span><span class="n">left</span><span class="o">=</span><span class="nb">mod</span><span class="p">(</span><span class="n">milliseconds</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">milliseconds</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">days</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">secsleft</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">int64</span><span class="p">),</span><span class="k">parameter</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">ONE_DAY</span><span class="o">=</span><span class="mi">86400</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_HOUR</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span><span class="w"> </span><span class="n">ONE_MINUTE</span><span class="o">=</span><span class="mi">60</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="k">allocatable</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">dhms</span><span class="w"></span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="w">              </span><span class="kd">::</span><span class="w"> </span><span class="n">scratch</span><span class="w"></span>
+<span class="w">   </span><span class="n">secsleft</span><span class="o">=</span><span class="n">milliseconds</span><span class="o">/</span><span class="mi">1000</span><span class="w"></span>
+<span class="w">   </span><span class="n">left</span><span class="o">=</span><span class="nb">mod</span><span class="p">(</span><span class="n">milliseconds</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="n">days</span><span class="o">=</span><span class="n">secsleft</span><span class="o">/</span><span class="n">ONE_DAY</span><span class="w">                  </span><span class="c">! get whole number of days</span>
 <span class="w">   </span><span class="n">secsleft</span><span class="o">=</span><span class="n">secsleft</span><span class="o">-</span><span class="n">days</span><span class="o">*</span><span class="n">ONE_DAY</span><span class="w">         </span><span class="c">! calculate remainder</span>
 <span class="w">   </span><span class="n">hours</span><span class="o">=</span><span class="n">secsleft</span><span class="o">/</span><span class="n">ONE_HOUR</span><span class="w">                </span><span class="c">! get whole number of hours</span>
-<span class="w">   </span><span class="n">secsleft</span><span class="o">=</span><span class="n">secsleft</span><span class="o">-</span><span class="n">hours</span><span class="o">*</span><span class="n">ONE_HOUR</span>
+<span class="w">   </span><span class="n">secsleft</span><span class="o">=</span><span class="n">secsleft</span><span class="o">-</span><span class="n">hours</span><span class="o">*</span><span class="n">ONE_HOUR</span><span class="w"></span>
 <span class="w">   </span><span class="n">minutes</span><span class="o">=</span><span class="n">secsleft</span><span class="o">/</span><span class="n">ONE_MINUTE</span><span class="w">            </span><span class="c">! get whole number of minutes</span>
-<span class="w">   </span><span class="n">secsleft</span><span class="o">=</span><span class="n">secsleft</span><span class="o">-</span><span class="n">minutes</span><span class="o">*</span><span class="n">ONE_MINUTE</span>
-<span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="n">scratch</span><span class="p">,</span><span class="s1">&#39;(i0,&quot;-&quot;,i2.2,&quot;:&quot;,i2.2,&quot;:&quot;,i2.2,&quot;.&quot;,i3.3)&#39;</span><span class="p">)</span><span class="n">days</span><span class="p">,</span><span class="n">hours</span><span class="p">,</span><span class="n">minutes</span><span class="p">,</span><span class="n">secsleft</span><span class="p">,</span><span class="n">left</span>
-<span class="w">   </span><span class="n">dhms</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">scratch</span><span class="p">)</span>
-<span class="k">end function </span><span class="n">millisec2days</span>
+<span class="w">   </span><span class="n">secsleft</span><span class="o">=</span><span class="n">secsleft</span><span class="o">-</span><span class="n">minutes</span><span class="o">*</span><span class="n">ONE_MINUTE</span><span class="w"></span>
+<span class="w">   </span><span class="k">write</span><span class="p">(</span><span class="n">scratch</span><span class="p">,</span><span class="s1">&#39;(i0,&quot;-&quot;,i2.2,&quot;:&quot;,i2.2,&quot;:&quot;,i2.2,&quot;.&quot;,i3.3)&#39;</span><span class="p">)</span><span class="n">days</span><span class="p">,</span><span class="n">hours</span><span class="p">,</span><span class="n">minutes</span><span class="p">,</span><span class="n">secsleft</span><span class="p">,</span><span class="n">left</span><span class="w"></span>
+<span class="w">   </span><span class="n">dhms</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="n">scratch</span><span class="p">)</span><span class="w"></span>
+<span class="k">end function </span><span class="n">millisec2days</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -444,7 +444,7 @@ parameter
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

@@ -271,7 +271,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~27"></span>
+              <span class="anchor" id="variable-ierr~26"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -342,15 +342,15 @@
 </code></pre></div>
 
 <h2 id="examples">EXAMPLES</h2>
-<div class="codehilite"><pre><span></span><code>Sample Program:
+<div class="codehilite"><pre><span></span><code><span class="nv">Sample</span> <span class="nv">Program</span>:
 
- program demo_string_to_value
- use M_strings, only: string_to_value
- character(len=80) :: string
-    string=&#39; -40.5e-2 &#39;
-    call string_to_value(string,value,ierr)
-    write(*,*) &#39;value of string [&#39;//trim(string)//&#39;] is &#39;,value
- end program demo_string_to_value
+ <span class="nv">program</span> <span class="nv">demo_string_to_value</span>
+ <span class="nv">use</span> <span class="nv">M_strings</span>, <span class="nv">only</span>: <span class="nv">string_to_value</span>
+ <span class="nv">character</span><span class="ss">(</span><span class="nv">len</span><span class="o">=</span><span class="mi">80</span><span class="ss">)</span> :: <span class="nv">string</span>
+    <span class="nv">string</span><span class="o">=</span><span class="s1">&#39;</span><span class="s"> -40.5e-2 </span><span class="s1">&#39;</span>
+    <span class="k">call</span> <span class="nl">string_to_value</span><span class="ss">(</span><span class="nv">string</span>,<span class="nv">value</span>,<span class="nv">ierr</span><span class="ss">)</span>
+    <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span> <span class="s1">&#39;</span><span class="s">value of string [</span><span class="s1">&#39;</span><span class="o">//</span><span class="nv">trim</span><span class="ss">(</span><span class="nv">string</span><span class="ss">)</span><span class="o">//</span><span class="s1">&#39;</span><span class="s">] is </span><span class="s1">&#39;</span>,<span class="nv">value</span>
+ <span class="k">end</span> <span class="nv">program</span> <span class="nv">demo_string_to_value</span>
 </code></pre></div>
 
 <h2 id="author">AUTHOR</h2>
@@ -404,7 +404,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~25"></span>
+              <span class="anchor" id="variable-ierr~24"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -472,7 +472,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~26"></span>
+              <span class="anchor" id="variable-ierr~25"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -506,16 +506,16 @@
 
     </h3>
   <h2 id="name">NAME</h2>
-<div class="codehilite"><pre><span></span><code>  v2s(3f) - [M_strings:NUMERIC] return numeric string from a numeric value
-  (LICENSE:PD)
+<div class="codehilite"><pre><span></span><code>  <span class="nv">v2s</span><span class="ss">(</span><span class="mi">3</span><span class="nv">f</span><span class="ss">)</span> <span class="o">-</span> [<span class="nv">M_strings</span>:<span class="nv">NUMERIC</span>] <span class="k">return</span> <span class="nv">numeric</span> <span class="nv">string</span> <span class="nv">from</span> <span class="nv">a</span> <span class="nv">numeric</span> <span class="nv">value</span>
+  <span class="ss">(</span><span class="nv">LICENSE</span>:<span class="nv">PD</span><span class="ss">)</span>
 </code></pre></div>
 
 <h2 id="synopsis">SYNOPSIS</h2>
-<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">function</span><span class="w"> </span><span class="nf">v2s(value) result</span><span class="p">(</span>outstr<span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">function</span><span class="w"> </span><span class="nf">v2s(value) result</span><span class="p">(</span>outstr<span class="p">)</span><span class="w"></span>
 
-<span class="w">    </span><span class="n">integer</span><span class="o">|</span><span class="nb">real</span><span class="o">|</span><span class="n">doubleprecision</span><span class="o">|</span><span class="nb">logical</span><span class="p">,</span><span class="n">intent</span><span class="p">(</span><span class="n">in</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">value</span>
-<span class="w">    </span><span class="n">character</span><span class="p">(</span><span class="n">len</span><span class="p">=:),</span><span class="n">allocatable</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">outstr</span>
-<span class="w">    </span><span class="n">character</span><span class="p">(</span><span class="n">len</span><span class="p">=</span><span class="o">*</span><span class="p">),</span><span class="n">optional</span><span class="p">,</span><span class="n">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">fmt</span>
+<span class="w">    </span><span class="n">integer</span><span class="o">|</span><span class="nb">real</span><span class="o">|</span><span class="n">doubleprecision</span><span class="o">|</span><span class="nb">logical</span><span class="p">,</span><span class="n">intent</span><span class="p">(</span><span class="n">in</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">value</span><span class="w"></span>
+<span class="w">    </span><span class="n">character</span><span class="p">(</span><span class="n">len</span><span class="p">=:),</span><span class="n">allocatable</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">outstr</span><span class="w"></span>
+<span class="w">    </span><span class="n">character</span><span class="p">(</span><span class="n">len</span><span class="p">=</span><span class="o">*</span><span class="p">),</span><span class="n">optional</span><span class="p">,</span><span class="n">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">::</span><span class="w"> </span><span class="n">fmt</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="description">DESCRIPTION</h2>
@@ -535,24 +535,24 @@ FMT     format can be explicitly given, but is limited to
 </code></pre></div>
 
 <h2 id="examples">EXAMPLES</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">Sample</span><span class="w"> </span><span class="nl">Program</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><code><span class="n">Sample</span><span class="w"> </span><span class="nl">Program</span><span class="p">:</span><span class="w"></span>
 
-<span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">demo_v2s</span>
-<span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">M_strings</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="err">:</span><span class="w"> </span><span class="n">v2s</span>
-<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of 3.0/4.0 is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(</span><span class="mf">3.0</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span>
-<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of 1234    is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span>
-<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of 0d0     is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(</span><span class="mi">0</span><span class="n">d0</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span>
-<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of .false. is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(.</span><span class="k">false</span><span class="p">.)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span>
-<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of .true. is  [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(.</span><span class="k">true</span><span class="p">.)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span>
-<span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">demo_v2s</span>
+<span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">demo_v2s</span><span class="w"></span>
+<span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">M_strings</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="err">:</span><span class="w"> </span><span class="n">v2s</span><span class="w"></span>
+<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of 3.0/4.0 is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(</span><span class="mf">3.0</span><span class="o">/</span><span class="mf">4.0</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span><span class="w"></span>
+<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of 1234    is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span><span class="w"></span>
+<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of 0d0     is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(</span><span class="mi">0</span><span class="n">d0</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span><span class="w"></span>
+<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of .false. is [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(.</span><span class="k">false</span><span class="p">.)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span><span class="w"></span>
+<span class="w"> </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;The value of .true. is  [&#39;</span><span class="o">//</span><span class="n">v2s</span><span class="p">(.</span><span class="k">true</span><span class="p">.)</span><span class="o">//</span><span class="s1">&#39;]&#39;</span><span class="w"></span>
+<span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="n">program</span><span class="w"> </span><span class="n">demo_v2s</span><span class="w"></span>
 
-<span class="n">Expected</span><span class="w"> </span><span class="k">output</span>
+<span class="n">Expected</span><span class="w"> </span><span class="k">output</span><span class="w"></span>
 
-<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mf">3.0</span><span class="o">/</span><span class="mf">4.0</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">0.75</span><span class="o">]</span>
-<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1234</span><span class="w">    </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">1234</span><span class="o">]</span>
-<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="w">     </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">0</span><span class="o">]</span>
-<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">.</span><span class="k">false</span><span class="p">.</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">F</span><span class="o">]</span>
-<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">.</span><span class="k">true</span><span class="p">.</span><span class="w"> </span><span class="k">is</span><span class="w">  </span><span class="o">[</span><span class="n">T</span><span class="o">]</span>
+<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mf">3.0</span><span class="o">/</span><span class="mf">4.0</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">0.75</span><span class="o">]</span><span class="w"></span>
+<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">1234</span><span class="w">    </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">1234</span><span class="o">]</span><span class="w"></span>
+<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="w">     </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"></span>
+<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">.</span><span class="k">false</span><span class="p">.</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="o">[</span><span class="n">F</span><span class="o">]</span><span class="w"></span>
+<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">.</span><span class="k">true</span><span class="p">.</span><span class="w"> </span><span class="k">is</span><span class="w">  </span><span class="o">[</span><span class="n">T</span><span class="o">]</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="author">AUTHOR</h2>
@@ -834,7 +834,7 @@ FMT     format can be explicitly given, but is limited to
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-length~3"></span>
+              <span class="anchor" id="variable-length~2"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -1034,7 +1034,7 @@ FMT     format can be explicitly given, but is limited to
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~23"></span>
+              <span class="anchor" id="variable-ierr~22"></span>
               integer,
             </td>
 <td></td>
@@ -1266,7 +1266,7 @@ FMT     format can be explicitly given, but is limited to
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-array~4"></span>
+              <span class="anchor" id="variable-array~3"></span>
               character(len=:),
             </td>
 <td>intent(out),</td>
@@ -1427,7 +1427,7 @@ FMT     format can be explicitly given, but is limited to
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~24"></span>
+              <span class="anchor" id="variable-ierr~23"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -1512,7 +1512,7 @@ FMT     format can be explicitly given, but is limited to
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~22"></span>
+              <span class="anchor" id="variable-ierr~21"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -1585,7 +1585,7 @@ FMT     format can be explicitly given, but is limited to
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

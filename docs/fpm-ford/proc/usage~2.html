@@ -133,7 +133,7 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/usage~2.html#variable-i~31">i</a>
+            <a class="list-group-item" href="../proc/usage~2.html#variable-i~28">i</a>
             <a class="list-group-item" href="../proc/usage~2.html#variable-text~2">text</a>
         </div>
       </div>
@@ -196,7 +196,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~31"></span>
+              <span class="anchor" id="variable-i~28"></span>
               integer,
             </td>
               <td>public</td>
@@ -246,71 +246,71 @@
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">usage</span><span class="p">()</span><span class="w"> </span><span class="c">! &quot;@(#) usage(3f90) writes program help to stdout and exits</span>
 <span class="c">!character(len=132),parameter :: text(:)= [&amp;</span>
-<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">132</span><span class="p">),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">text</span><span class="p">(:)</span>
-<span class="kt">integer</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
-<span class="n">text</span><span class="o">=</span><span class="w"> </span><span class="p">[&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;NAME                                                                            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   ttee(1f) - [TIME] write input to stdout and a file with timing info.         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   (LICENSE:PD)                                                                 &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;SYNOPSIS                                                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   ttee [[ -o|--output] filename(s)] [ -a|--append] [ --timestamp FLAG]] ...    &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;        [ -fmt FORMAT] [ --help | --version]                                    &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;DESCRIPTION                                                                     &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   Read from standard input and write to standard output and files              &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   with an optional timestamp in front of each line.                            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   -o|--output FILENAME(S)                                                      &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;         specify name of output file(s). If the filenames are first the         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;         keyword -o|--output is optional.                                       &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   -a|--append                                                                  &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;         append to the given output file(s), do not overwrite                   &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   -t|--timestamp FLAG                                                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;         which files to add the timestamp to. Default is &quot;all&quot;                  &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;         Allowed values are stdout, output, all, none.                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   -fmt FORMAT                                                                  &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;         Change format for timestamp prefix using a call to now(3f).            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;CALL FMTDATE_USAGE                                                              &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   --help     display this help and exit                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   --version  output version information and exit                               &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;LIMITS                                                                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    Program limits:                                                             &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    o  Input line width maximum is 1024 characters.                             &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    o  Maximum length of output filenames is 4098, individual filename is 1024. &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    o  Minimum number of output files is probably at least 90; but is           &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;       system dependent.                                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;EXAMPLES                                                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;   Basic command usage:                                                         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    # write stdout of &quot;program&quot; to ttee.out with a timestamp and stdout         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    program|ttee --output ttee.out --timestamp output|grep -i iteration         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    # write stdout of &quot;program&quot; to log.txt and stdout with a Julian Day         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    program|ttee log.txt -fmt &quot;%J :&quot;                                            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    2457565.488 :Iteration 1 : Error: 1.20                                      &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    2457565.558 :Iteration 2 : Error: 0.08                                      &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;    2467569.684 :Iteration 3 : Error: 1.2e-3                                    &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;AUTHOR                                                                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;  John S. Urban                                                                 &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;LICENSE                                                                         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;  Public Domain                                                                 &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">]</span>
-<span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">SIZE</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="w">   </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;CALL FMTDATE_USAGE&#39;</span><span class="p">)</span>
-<span class="w">      </span><span class="k">call </span><span class="n">fmtdate_usage</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="w">   </span><span class="k">case </span><span class="n">default</span>
-<span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">trim</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">132</span><span class="p">),</span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">text</span><span class="p">(:)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="n">text</span><span class="o">=</span><span class="w"> </span><span class="p">[&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;NAME                                                                            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   ttee(1f) - [TIME] write input to stdout and a file with timing info.         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   (LICENSE:PD)                                                                 &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;SYNOPSIS                                                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   ttee [[ -o|--output] filename(s)] [ -a|--append] [ --timestamp FLAG]] ...    &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;        [ -fmt FORMAT] [ --help | --version]                                    &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;DESCRIPTION                                                                     &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   Read from standard input and write to standard output and files              &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   with an optional timestamp in front of each line.                            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   -o|--output FILENAME(S)                                                      &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;         specify name of output file(s). If the filenames are first the         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;         keyword -o|--output is optional.                                       &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   -a|--append                                                                  &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;         append to the given output file(s), do not overwrite                   &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   -t|--timestamp FLAG                                                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;         which files to add the timestamp to. Default is &quot;all&quot;                  &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;         Allowed values are stdout, output, all, none.                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   -fmt FORMAT                                                                  &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;         Change format for timestamp prefix using a call to now(3f).            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;CALL FMTDATE_USAGE                                                              &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   --help     display this help and exit                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   --version  output version information and exit                               &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;LIMITS                                                                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    Program limits:                                                             &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    o  Input line width maximum is 1024 characters.                             &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    o  Maximum length of output filenames is 4098, individual filename is 1024. &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    o  Minimum number of output files is probably at least 90; but is           &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;       system dependent.                                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;EXAMPLES                                                                        &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;   Basic command usage:                                                         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    # write stdout of &quot;program&quot; to ttee.out with a timestamp and stdout         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    program|ttee --output ttee.out --timestamp output|grep -i iteration         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    # write stdout of &quot;program&quot; to log.txt and stdout with a Julian Day         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    program|ttee log.txt -fmt &quot;%J :&quot;                                            &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    2457565.488 :Iteration 1 : Error: 1.20                                      &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    2457565.558 :Iteration 2 : Error: 0.08                                      &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;    2467569.684 :Iteration 3 : Error: 1.2e-3                                    &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;AUTHOR                                                                          &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;  John S. Urban                                                                 &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;LICENSE                                                                         &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;  Public Domain                                                                 &#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="p">&amp;</span><span class="s1">&#39;                                                                                &#39;</span><span class="p">]</span><span class="w"></span>
+<span class="k">do </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">SIZE</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="k">case</span><span class="p">(</span><span class="s1">&#39;CALL FMTDATE_USAGE&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">fmtdate_usage</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="nb">trim</span><span class="p">(</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
 <span class="w">   </span><span class="k">end select</span>
 <span class="k">enddo</span>
-<span class="k">end subroutine </span><span class="n">usage</span>
+<span class="k">end subroutine </span><span class="n">usage</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -334,7 +334,7 @@
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>

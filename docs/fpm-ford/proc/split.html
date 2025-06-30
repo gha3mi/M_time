@@ -212,89 +212,89 @@
 
 <h2 id="examples">EXAMPLES</h2>
 <p>Sample program:</p>
-<div class="codehilite"><pre><span></span><code>   program demo_split
-   use M_strings, only: split
-   character(len=*),parameter     :: &amp;
-   &amp; line=&#39;  aBcdef   ghijklmnop qrstuvwxyz  1:|:2     333|333 a B cc    &#39;
-   character(len=:),allocatable :: array(:) ! output array of tokens
-      write(*,*)&#39;INPUT LINE:[&#39;//LINE//&#39;]&#39;
-      write(*,&#39;(80(&quot;=&quot;))&#39;)
-      write(*,*)&#39;typical call:&#39;
-      CALL split(line,array)
-      write(*,&#39;(i0,&quot; ==&gt; &quot;,a)&#39;)(i,trim(array(i)),i=1,size(array))
-      write(*,*)&#39;SIZE:&#39;,SIZE(array)
-      write(*,&#39;(80(&quot;-&quot;))&#39;)
-      write(*,*)&#39;custom list of delimiters (colon and vertical line):&#39;
-      CALL split(line,array,delimiters=&#39;:|&#39;,order=&#39;sequential&#39;,nulls=&#39;ignore&#39;)
-      write(*,&#39;(i0,&quot; ==&gt; &quot;,a)&#39;)(i,trim(array(i)),i=1,size(array))
-      write(*,*)&#39;SIZE:&#39;,SIZE(array)
-      write(*,&#39;(80(&quot;-&quot;))&#39;)
-      write(*,*)&amp;
-      &amp;&#39;custom list of delimiters, reverse array order and count null fields:&#39;
-      CALL split(line,array,delimiters=&#39;:|&#39;,order=&#39;reverse&#39;,nulls=&#39;return&#39;)
-      write(*,&#39;(i0,&quot; ==&gt; &quot;,a)&#39;)(i,trim(array(i)),i=1,size(array))
-      write(*,*)&#39;SIZE:&#39;,SIZE(array)
-      write(*,&#39;(80(&quot;-&quot;))&#39;)
-      write(*,*)&#39;INPUT LINE:[&#39;//LINE//&#39;]&#39;
-      write(*,*)&amp;
-      &amp;&#39;default delimiters and reverse array order and return null fields:&#39;
-      CALL split(line,array,delimiters=&#39;&#39;,order=&#39;reverse&#39;,nulls=&#39;return&#39;)
-      write(*,&#39;(i0,&quot; ==&gt; &quot;,a)&#39;)(i,trim(array(i)),i=1,size(array))
-      write(*,*)&#39;SIZE:&#39;,SIZE(array)
-  end program demo_split
+<div class="codehilite"><pre><span></span><code>   <span class="nv">program</span> <span class="nv">demo_split</span>
+   <span class="nv">use</span> <span class="nv">M_strings</span>, <span class="nv">only</span>: <span class="nv">split</span>
+   <span class="nv">character</span><span class="ss">(</span><span class="nv">len</span><span class="o">=*</span><span class="ss">)</span>,<span class="nv">parameter</span>     :: <span class="o">&amp;</span>
+   <span class="o">&amp;</span> <span class="nv">line</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">  aBcdef   ghijklmnop qrstuvwxyz  1:|:2     333|333 a B cc    </span><span class="s1">&#39;</span>
+   <span class="nv">character</span><span class="ss">(</span><span class="nv">len</span><span class="o">=</span>:<span class="ss">)</span>,<span class="nv">allocatable</span> :: <span class="nv">array</span><span class="ss">(</span>:<span class="ss">)</span> <span class="o">!</span> <span class="nv">output</span> <span class="nv">array</span> <span class="nv">of</span> <span class="nv">tokens</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">INPUT LINE:[</span><span class="s1">&#39;</span><span class="o">//</span><span class="nv">LINE</span><span class="o">//</span><span class="s1">&#39;</span><span class="s">]</span><span class="s1">&#39;</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(80(&quot;=&quot;))</span><span class="s1">&#39;</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">typical call:</span><span class="s1">&#39;</span>
+      <span class="k">CALL</span> <span class="nl">split</span><span class="ss">(</span><span class="nv">line</span>,<span class="nv">array</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(i0,&quot; ==&gt; &quot;,a)</span><span class="s1">&#39;</span><span class="ss">)(</span><span class="nv">i</span>,<span class="nv">trim</span><span class="ss">(</span><span class="nv">array</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span>,<span class="nv">i</span><span class="o">=</span><span class="mi">1</span>,<span class="nv">size</span><span class="ss">(</span><span class="nv">array</span><span class="ss">))</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">SIZE:</span><span class="s1">&#39;</span>,<span class="nv">SIZE</span><span class="ss">(</span><span class="nv">array</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(80(&quot;-&quot;))</span><span class="s1">&#39;</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">custom list of delimiters (colon and vertical line):</span><span class="s1">&#39;</span>
+      <span class="k">CALL</span> <span class="nl">split</span><span class="ss">(</span><span class="nv">line</span>,<span class="nv">array</span>,<span class="nv">delimiters</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">:|</span><span class="s1">&#39;</span>,<span class="nv">order</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">sequential</span><span class="s1">&#39;</span>,<span class="nv">nulls</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">ignore</span><span class="s1">&#39;</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(i0,&quot; ==&gt; &quot;,a)</span><span class="s1">&#39;</span><span class="ss">)(</span><span class="nv">i</span>,<span class="nv">trim</span><span class="ss">(</span><span class="nv">array</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span>,<span class="nv">i</span><span class="o">=</span><span class="mi">1</span>,<span class="nv">size</span><span class="ss">(</span><span class="nv">array</span><span class="ss">))</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">SIZE:</span><span class="s1">&#39;</span>,<span class="nv">SIZE</span><span class="ss">(</span><span class="nv">array</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(80(&quot;-&quot;))</span><span class="s1">&#39;</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="o">&amp;</span>
+      <span class="o">&amp;</span><span class="s1">&#39;</span><span class="s">custom list of delimiters, reverse array order and count null fields:</span><span class="s1">&#39;</span>
+      <span class="k">CALL</span> <span class="nl">split</span><span class="ss">(</span><span class="nv">line</span>,<span class="nv">array</span>,<span class="nv">delimiters</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">:|</span><span class="s1">&#39;</span>,<span class="nv">order</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">reverse</span><span class="s1">&#39;</span>,<span class="nv">nulls</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">return</span><span class="s1">&#39;</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(i0,&quot; ==&gt; &quot;,a)</span><span class="s1">&#39;</span><span class="ss">)(</span><span class="nv">i</span>,<span class="nv">trim</span><span class="ss">(</span><span class="nv">array</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span>,<span class="nv">i</span><span class="o">=</span><span class="mi">1</span>,<span class="nv">size</span><span class="ss">(</span><span class="nv">array</span><span class="ss">))</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">SIZE:</span><span class="s1">&#39;</span>,<span class="nv">SIZE</span><span class="ss">(</span><span class="nv">array</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(80(&quot;-&quot;))</span><span class="s1">&#39;</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">INPUT LINE:[</span><span class="s1">&#39;</span><span class="o">//</span><span class="nv">LINE</span><span class="o">//</span><span class="s1">&#39;</span><span class="s">]</span><span class="s1">&#39;</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="o">&amp;</span>
+      <span class="o">&amp;</span><span class="s1">&#39;</span><span class="s">default delimiters and reverse array order and return null fields:</span><span class="s1">&#39;</span>
+      <span class="k">CALL</span> <span class="nl">split</span><span class="ss">(</span><span class="nv">line</span>,<span class="nv">array</span>,<span class="nv">delimiters</span><span class="o">=</span><span class="s1">&#39;&#39;</span>,<span class="nv">order</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">reverse</span><span class="s1">&#39;</span>,<span class="nv">nulls</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">return</span><span class="s1">&#39;</span><span class="ss">)</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="s1">&#39;</span><span class="s">(i0,&quot; ==&gt; &quot;,a)</span><span class="s1">&#39;</span><span class="ss">)(</span><span class="nv">i</span>,<span class="nv">trim</span><span class="ss">(</span><span class="nv">array</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span>,<span class="nv">i</span><span class="o">=</span><span class="mi">1</span>,<span class="nv">size</span><span class="ss">(</span><span class="nv">array</span><span class="ss">))</span>
+      <span class="nv">write</span><span class="ss">(</span><span class="o">*</span>,<span class="o">*</span><span class="ss">)</span><span class="s1">&#39;</span><span class="s">SIZE:</span><span class="s1">&#39;</span>,<span class="nv">SIZE</span><span class="ss">(</span><span class="nv">array</span><span class="ss">)</span>
+  <span class="k">end</span> <span class="nv">program</span> <span class="nv">demo_split</span>
 </code></pre></div>
 
 <p>Output</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">INPUT</span><span class="w"> </span><span class="nv">LINE</span>:[<span class="w">  </span><span class="nv">aBcdef</span><span class="w">   </span><span class="nv">ghijklmnop</span><span class="w"> </span><span class="nv">qrstuvwxyz</span><span class="w">  </span><span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span><span class="w">     </span><span class="mi">333</span><span class="o">|</span><span class="mi">333</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="nv">cc</span><span class="w">    </span>]
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="o">===========================================================================</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">typical</span><span class="w"> </span><span class="nv">call</span>:
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">aBcdef</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">ghijklmnop</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">qrstuvwxyz</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">333</span><span class="o">|</span><span class="mi">333</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">a</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">B</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">cc</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">SIZE</span>:<span class="w">           </span><span class="mi">8</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="o">--------------------------------------------------------------------------</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">custom</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="ss">(</span><span class="nv">colon</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">vertical</span><span class="w"> </span><span class="nv">line</span><span class="ss">)</span>:
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==&gt;</span><span class="w">   </span><span class="nv">aBcdef</span><span class="w">   </span><span class="nv">ghijklmnop</span><span class="w"> </span><span class="nv">qrstuvwxyz</span><span class="w">  </span><span class="mi">1</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w">     </span><span class="mi">333</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">333</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="nv">cc</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">SIZE</span>:<span class="w">           </span><span class="mi">3</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="o">--------------------------------------------------------------------------</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">custom</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">delimiters</span>,<span class="w"> </span><span class="nv">reverse</span><span class="w"> </span><span class="nv">array</span><span class="w"> </span><span class="nv">order</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">null</span><span class="w"> </span><span class="nv">fields</span>:
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">333</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="nv">cc</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w">     </span><span class="mi">333</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==&gt;</span><span class="w">   </span><span class="nv">aBcdef</span><span class="w">   </span><span class="nv">ghijklmnop</span><span class="w"> </span><span class="nv">qrstuvwxyz</span><span class="w">  </span><span class="mi">1</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">SIZE</span>:<span class="w">           </span><span class="mi">5</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="o">--------------------------------------------------------------------------</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">INPUT</span><span class="w"> </span><span class="nv">LINE</span>:[<span class="w">  </span><span class="nv">aBcdef</span><span class="w">   </span><span class="nv">ghijklmnop</span><span class="w"> </span><span class="nv">qrstuvwxyz</span><span class="w">  </span><span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span><span class="w">     </span><span class="mi">333</span><span class="o">|</span><span class="mi">333</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="nv">cc</span><span class="w">    </span>]
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">default</span><span class="w"> </span><span class="nv">delimiters</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">reverse</span><span class="w"> </span><span class="nv">array</span><span class="w"> </span><span class="nv">order</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">count</span><span class="w"> </span><span class="nv">null</span><span class="w"> </span><span class="nv">fields</span>:
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">cc</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">B</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">a</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">333</span><span class="o">|</span><span class="mi">333</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">qrstuvwxyz</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">ghijklmnop</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="o">==&gt;</span><span class="w"> </span><span class="nv">aBcdef</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">==&gt;</span>
-<span class="w">    </span><span class="o">&gt;</span><span class="w">  </span><span class="nv">SIZE</span>:<span class="w">          </span><span class="mi">20</span>
+<div class="codehilite"><pre><span></span><code>    <span class="o">&gt;</span> <span class="nv">INPUT</span> <span class="nv">LINE</span>:[  <span class="nv">aBcdef</span>   <span class="nv">ghijklmnop</span> <span class="nv">qrstuvwxyz</span>  <span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span>     <span class="mi">333</span><span class="o">|</span><span class="mi">333</span> <span class="nv">a</span> <span class="nv">B</span> <span class="nv">cc</span>    ]
+    <span class="o">&gt;</span> <span class="o">===========================================================================</span>
+    <span class="o">&gt;</span>  <span class="nv">typical</span> <span class="nv">call</span>:
+    <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">==&gt;</span> <span class="nv">aBcdef</span>
+    <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">==&gt;</span> <span class="nv">ghijklmnop</span>
+    <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">==&gt;</span> <span class="nv">qrstuvwxyz</span>
+    <span class="o">&gt;</span> <span class="mi">4</span> <span class="o">==&gt;</span> <span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span>
+    <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">==&gt;</span> <span class="mi">333</span><span class="o">|</span><span class="mi">333</span>
+    <span class="o">&gt;</span> <span class="mi">6</span> <span class="o">==&gt;</span> <span class="nv">a</span>
+    <span class="o">&gt;</span> <span class="mi">7</span> <span class="o">==&gt;</span> <span class="nv">B</span>
+    <span class="o">&gt;</span> <span class="mi">8</span> <span class="o">==&gt;</span> <span class="nv">cc</span>
+    <span class="o">&gt;</span>  <span class="nv">SIZE</span>:           <span class="mi">8</span>
+    <span class="o">&gt;</span> <span class="o">--------------------------------------------------------------------------</span>
+    <span class="o">&gt;</span>  <span class="nv">custom</span> <span class="nv">list</span> <span class="nv">of</span> <span class="nv">delimiters</span> <span class="ss">(</span><span class="nv">colon</span> <span class="nv">and</span> <span class="nv">vertical</span> <span class="nv">line</span><span class="ss">)</span>:
+    <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">==&gt;</span>   <span class="nv">aBcdef</span>   <span class="nv">ghijklmnop</span> <span class="nv">qrstuvwxyz</span>  <span class="mi">1</span>
+    <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">==&gt;</span> <span class="mi">2</span>     <span class="mi">333</span>
+    <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">==&gt;</span> <span class="mi">333</span> <span class="nv">a</span> <span class="nv">B</span> <span class="nv">cc</span>
+    <span class="o">&gt;</span>  <span class="nv">SIZE</span>:           <span class="mi">3</span>
+    <span class="o">&gt;</span> <span class="o">--------------------------------------------------------------------------</span>
+    <span class="o">&gt;</span>  <span class="nv">custom</span> <span class="nv">list</span> <span class="nv">of</span> <span class="nv">delimiters</span>, <span class="nv">reverse</span> <span class="nv">array</span> <span class="nv">order</span> <span class="nv">and</span> <span class="k">return</span> <span class="nv">null</span> <span class="nv">fields</span>:
+    <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">==&gt;</span> <span class="mi">333</span> <span class="nv">a</span> <span class="nv">B</span> <span class="nv">cc</span>
+    <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">==&gt;</span> <span class="mi">2</span>     <span class="mi">333</span>
+    <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">4</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">==&gt;</span>   <span class="nv">aBcdef</span>   <span class="nv">ghijklmnop</span> <span class="nv">qrstuvwxyz</span>  <span class="mi">1</span>
+    <span class="o">&gt;</span>  <span class="nv">SIZE</span>:           <span class="mi">5</span>
+    <span class="o">&gt;</span> <span class="o">--------------------------------------------------------------------------</span>
+    <span class="o">&gt;</span>  <span class="nv">INPUT</span> <span class="nv">LINE</span>:[  <span class="nv">aBcdef</span>   <span class="nv">ghijklmnop</span> <span class="nv">qrstuvwxyz</span>  <span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span>     <span class="mi">333</span><span class="o">|</span><span class="mi">333</span> <span class="nv">a</span> <span class="nv">B</span> <span class="nv">cc</span>    ]
+    <span class="o">&gt;</span>  <span class="nv">default</span> <span class="nv">delimiters</span> <span class="nv">and</span> <span class="nv">reverse</span> <span class="nv">array</span> <span class="nv">order</span> <span class="nv">and</span> <span class="nv">count</span> <span class="nv">null</span> <span class="nv">fields</span>:
+    <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">4</span> <span class="o">==&gt;</span> <span class="nv">cc</span>
+    <span class="o">&gt;</span> <span class="mi">5</span> <span class="o">==&gt;</span> <span class="nv">B</span>
+    <span class="o">&gt;</span> <span class="mi">6</span> <span class="o">==&gt;</span> <span class="nv">a</span>
+    <span class="o">&gt;</span> <span class="mi">7</span> <span class="o">==&gt;</span> <span class="mi">333</span><span class="o">|</span><span class="mi">333</span>
+    <span class="o">&gt;</span> <span class="mi">8</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">9</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">10</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">11</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">12</span> <span class="o">==&gt;</span> <span class="mi">1</span>:<span class="o">|</span>:<span class="mi">2</span>
+    <span class="o">&gt;</span> <span class="mi">13</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">14</span> <span class="o">==&gt;</span> <span class="nv">qrstuvwxyz</span>
+    <span class="o">&gt;</span> <span class="mi">15</span> <span class="o">==&gt;</span> <span class="nv">ghijklmnop</span>
+    <span class="o">&gt;</span> <span class="mi">16</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">17</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">18</span> <span class="o">==&gt;</span> <span class="nv">aBcdef</span>
+    <span class="o">&gt;</span> <span class="mi">19</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span> <span class="mi">20</span> <span class="o">==&gt;</span>
+    <span class="o">&gt;</span>  <span class="nv">SIZE</span>:          <span class="mi">20</span>
 </code></pre></div>
 
 <h2 id="author">AUTHOR</h2>
@@ -334,7 +334,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-array~4"></span>
+              <span class="anchor" id="variable-array~3"></span>
               character(len=:),
             </td>
 <td>intent(out),</td>
@@ -409,7 +409,7 @@
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">split</span><span class="p">(</span><span class="n">input_line</span><span class="p">,</span><span class="k">array</span><span class="p">,</span><span class="n">delimiters</span><span class="p">,</span><span class="n">order</span><span class="p">,</span><span class="n">nulls</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">split</span><span class="p">(</span><span class="n">input_line</span><span class="p">,</span><span class="k">array</span><span class="p">,</span><span class="n">delimiters</span><span class="p">,</span><span class="n">order</span><span class="p">,</span><span class="n">nulls</span><span class="p">)</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 
 <span class="c">!character(len=*),parameter::ident_7=&quot;&amp;</span>
@@ -417,7 +417,7 @@
 
 <span class="c">!  John S. Urban</span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="k">intrinsic </span><span class="nb">index</span><span class="p">,</span><span class="w"> </span><span class="nb">min</span><span class="p">,</span><span class="w"> </span><span class="nb">present</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span>
+<span class="k">intrinsic </span><span class="nb">index</span><span class="p">,</span><span class="w"> </span><span class="nb">min</span><span class="p">,</span><span class="w"> </span><span class="nb">present</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="c">!  given a line of structure &quot; par1 par2 par3 ... parn &quot; store each par(n) into a separate variable in array.</span>
 <span class="c">!    o by default adjacent delimiters in the input string do not create an empty string in the output array</span>
@@ -448,7 +448,7 @@
 <span class="w">   </span><span class="c">! decide on value for optional DELIMITERS parameter</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">delimiters</span><span class="p">))</span><span class="w"> </span><span class="k">then</span><span class="w">                                     </span><span class="c">! optional delimiter list was present</span>
 <span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">delimiters</span><span class="o">/=</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="k">then</span><span class="w">                                       </span><span class="c">! if DELIMITERS was specified and not null use it</span>
-<span class="w">         </span><span class="n">dlim</span><span class="o">=</span><span class="n">delimiters</span>
+<span class="w">         </span><span class="n">dlim</span><span class="o">=</span><span class="n">delimiters</span><span class="w"></span>
 <span class="w">      </span><span class="k">else</span><span class="w">                                                           </span><span class="c">! DELIMITERS was specified on call as empty string</span>
 <span class="w">         </span><span class="n">dlim</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="nb">achar</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">//</span><span class="nb">achar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">//</span><span class="nb">achar</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="o">//</span><span class="nb">achar</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">//</span><span class="nb">achar</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="o">//</span><span class="nb">achar</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="c">! use default delimiter when not specified</span>
 <span class="w">      </span><span class="k">endif</span>
@@ -463,15 +463,15 @@
 <span class="w">   </span><span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">input_line</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="w">                        </span><span class="c">! max number of strings INPUT_LINE could split into if all delimiter</span>
 <span class="w">   </span><span class="k">allocate</span><span class="p">(</span><span class="n">ibegin</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w">                        </span><span class="c">! allocate enough space to hold starting location of tokens if string all tokens</span>
 <span class="w">   </span><span class="k">allocate</span><span class="p">(</span><span class="n">iterm</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w">                         </span><span class="c">! allocate enough space to hold ending location of tokens if string all tokens</span>
-<span class="w">   </span><span class="n">ibegin</span><span class="p">(:)</span><span class="o">=</span><span class="mi">1</span>
-<span class="w">   </span><span class="n">iterm</span><span class="p">(:)</span><span class="o">=</span><span class="mi">1</span>
+<span class="w">   </span><span class="n">ibegin</span><span class="p">(:)</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">iterm</span><span class="p">(:)</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="w">   </span><span class="n">ilen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">input_line</span><span class="p">)</span><span class="w">                                           </span><span class="c">! ILEN is the column position of the last non-blank character</span>
 <span class="w">   </span><span class="n">icount</span><span class="o">=</span><span class="mi">0</span><span class="w">                                                       </span><span class="c">! how many tokens found</span>
 <span class="w">   </span><span class="n">inotnull</span><span class="o">=</span><span class="mi">0</span><span class="w">                                                     </span><span class="c">! how many tokens found not composed of delimiters</span>
 <span class="w">   </span><span class="n">imax</span><span class="o">=</span><span class="mi">0</span><span class="w">                                                         </span><span class="c">! length of longest token found</span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">ilen</span><span class="p">)</span>
+<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">ilen</span><span class="p">)</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(:</span><span class="mi">0</span><span class="p">)</span><span class="w">                                                      </span><span class="c">! command was totally blank</span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
@@ -482,9 +482,9 @@
 <span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">dlim</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">idlim</span><span class="p">),</span><span class="n">input_line</span><span class="p">(</span><span class="n">icol</span><span class="p">:</span><span class="n">icol</span><span class="p">))</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span><span class="w">  </span><span class="c">! if current character is not a delimiter</span>
 <span class="w">            </span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">=</span><span class="n">ilen</span><span class="w">                                       </span><span class="c">! initially assume no more tokens</span>
 <span class="w">            </span><span class="k">do </span><span class="n">i10</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">idlim</span><span class="w">                                        </span><span class="c">! search for next delimiter</span>
-<span class="w">               </span><span class="n">ifound</span><span class="o">=</span><span class="nb">index</span><span class="p">(</span><span class="n">input_line</span><span class="p">(</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i30</span><span class="p">):</span><span class="n">ilen</span><span class="p">),</span><span class="n">dlim</span><span class="p">(</span><span class="n">i10</span><span class="p">:</span><span class="n">i10</span><span class="p">))</span>
+<span class="w">               </span><span class="n">ifound</span><span class="o">=</span><span class="nb">index</span><span class="p">(</span><span class="n">input_line</span><span class="p">(</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i30</span><span class="p">):</span><span class="n">ilen</span><span class="p">),</span><span class="n">dlim</span><span class="p">(</span><span class="n">i10</span><span class="p">:</span><span class="n">i10</span><span class="p">))</span><span class="w"></span>
 <span class="w">               </span><span class="k">IF</span><span class="p">(</span><span class="n">ifound</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="k">then</span>
-<span class="k">                  </span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">),</span><span class="n">ifound</span><span class="o">+</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">                  </span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">),</span><span class="n">ifound</span><span class="o">+</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 <span class="w">               </span><span class="k">endif</span>
 <span class="k">            enddo</span>
 <span class="k">            </span><span class="n">icol</span><span class="o">=</span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="w">                                     </span><span class="c">! next place to look as found end of this token</span>
@@ -493,20 +493,20 @@
 <span class="w">            </span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">=</span><span class="n">icol</span><span class="o">-</span><span class="mi">1</span><span class="w">                                     </span><span class="c">! record assumed end of string. Will be less than beginning</span>
 <span class="w">            </span><span class="n">icol</span><span class="o">=</span><span class="n">icol</span><span class="o">+</span><span class="mi">1</span><span class="w">                                           </span><span class="c">! advance pointer into input string</span>
 <span class="w">         </span><span class="k">endif</span>
-<span class="k">         </span><span class="n">imax</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">-</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">         </span><span class="n">imax</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">imax</span><span class="p">,</span><span class="n">iterm</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">-</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i30</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 <span class="w">         </span><span class="n">icount</span><span class="o">=</span><span class="n">i30</span><span class="w">                                               </span><span class="c">! increment count of number of tokens found</span>
 <span class="w">         </span><span class="k">if</span><span class="p">(</span><span class="n">icol</span><span class="o">&gt;</span><span class="n">ilen</span><span class="p">)</span><span class="k">then</span><span class="w">                                     </span><span class="c">! no text left</span>
-<span class="w">            </span><span class="k">exit </span><span class="n">INFINITE</span>
+<span class="w">            </span><span class="k">exit </span><span class="n">INFINITE</span><span class="w"></span>
 <span class="w">         </span><span class="k">endif</span>
-<span class="k">      enddo </span><span class="n">INFINITE</span>
+<span class="k">      enddo </span><span class="n">INFINITE</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="w">   </span><span class="k">end select</span>
+<span class="w">   </span><span class="k">end select</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">nlls</span><span class="p">)))</span>
-<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;ignoreend&#39;</span><span class="p">)</span>
-<span class="w">      </span><span class="n">ireturn</span><span class="o">=</span><span class="n">inotnull</span>
-<span class="w">   </span><span class="k">case </span><span class="n">default</span>
-<span class="w">      </span><span class="n">ireturn</span><span class="o">=</span><span class="n">icount</span>
+<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">nlls</span><span class="p">)))</span><span class="w"></span>
+<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;ignoreend&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ireturn</span><span class="o">=</span><span class="n">inotnull</span><span class="w"></span>
+<span class="w">   </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="w">      </span><span class="n">ireturn</span><span class="o">=</span><span class="n">icount</span><span class="w"></span>
 <span class="w">   </span><span class="k">end select</span>
 <span class="k">   allocate</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">imax</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="k">array</span><span class="p">(</span><span class="n">ireturn</span><span class="p">))</span><span class="w">                </span><span class="c">! allocate the array to return</span>
 <span class="w">   </span><span class="c">!allocate(array(ireturn))                                       ! allocate the array to turn</span>
@@ -514,23 +514,23 @@
 <span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">ordr</span><span class="p">)))</span><span class="w">                              </span><span class="c">! decide which order to store tokens</span>
 <span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;reverse&#39;</span><span class="p">,</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">ii</span><span class="o">=</span><span class="n">ireturn</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">iiii</span><span class="o">=-</span><span class="mi">1</span><span class="w">                </span><span class="c">! last to first</span>
 <span class="w">   </span><span class="k">case </span><span class="n">default</span><span class="w">             </span><span class="p">;</span><span class="w"> </span><span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="w">       </span><span class="p">;</span><span class="w"> </span><span class="n">iiii</span><span class="o">=</span><span class="mi">1</span><span class="w">                 </span><span class="c">! first to last</span>
-<span class="w">   </span><span class="k">end select</span>
+<span class="w">   </span><span class="k">end select</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <span class="w">   </span><span class="k">do </span><span class="n">i20</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">icount</span><span class="w">                                                </span><span class="c">! fill the array with the tokens that were found</span>
 <span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">iterm</span><span class="p">(</span><span class="n">i20</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i20</span><span class="p">))</span><span class="k">then</span>
-<span class="k">         select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">nlls</span><span class="p">)))</span>
-<span class="w">         </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;ignoreend&#39;</span><span class="p">)</span>
-<span class="w">         </span><span class="k">case </span><span class="n">default</span>
-<span class="w">            </span><span class="k">array</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39; &#39;</span>
-<span class="w">            </span><span class="n">ii</span><span class="o">=</span><span class="n">ii</span><span class="o">+</span><span class="n">iiii</span>
+<span class="k">         select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">nlls</span><span class="p">)))</span><span class="w"></span>
+<span class="w">         </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;ignoreend&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+<span class="w">            </span><span class="k">array</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="w"></span>
+<span class="w">            </span><span class="n">ii</span><span class="o">=</span><span class="n">ii</span><span class="o">+</span><span class="n">iiii</span><span class="w"></span>
 <span class="w">         </span><span class="k">end select</span>
 <span class="k">      else</span>
-<span class="k">         array</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="o">=</span><span class="n">input_line</span><span class="p">(</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i20</span><span class="p">):</span><span class="n">iterm</span><span class="p">(</span><span class="n">i20</span><span class="p">))</span>
-<span class="w">         </span><span class="n">ii</span><span class="o">=</span><span class="n">ii</span><span class="o">+</span><span class="n">iiii</span>
+<span class="k">         array</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="o">=</span><span class="n">input_line</span><span class="p">(</span><span class="n">ibegin</span><span class="p">(</span><span class="n">i20</span><span class="p">):</span><span class="n">iterm</span><span class="p">(</span><span class="n">i20</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">ii</span><span class="o">=</span><span class="n">ii</span><span class="o">+</span><span class="n">iiii</span><span class="w"></span>
 <span class="w">      </span><span class="k">endif</span>
-<span class="k">   enddo</span>
+<span class="k">   enddo</span><span class="w"></span>
 <span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<span class="w">   </span><span class="k">end subroutine </span><span class="n">split</span>
+<span class="w">   </span><span class="k">end subroutine </span><span class="n">split</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -554,7 +554,7 @@
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-06-25 12:39 +0000             </p>
+ on 2025-06-30 15:26 +0000             </p>
           </div>
         </div>
         <br>
