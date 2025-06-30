@@ -101,7 +101,9 @@ jobs:
 
   update_readme_table:
     name: Update README.md status table
-    if: always()
+    if: |
+      always() &&
+      github.ref != 'refs/heads/update-readme-table'
     needs: [status_fpm]
     runs-on: ubuntu-latest
     steps:
@@ -109,6 +111,6 @@ jobs:
         uses: gha3mi/setup-fortran-conda@latest
         with:
           update-readme-table: true
-          update-readme-token: ${{ secrets.GH_PAT }}
-          update-readme-user-name: "Seyed Ali Ghasemi"
-          update-readme-user-email: "info@gha3mi.com"
+          update-readme-token: ${{ secrets.GH_PAT }}   # Update with your GitHub personal access token
+          update-readme-user-name: "Seyed Ali Ghasemi" # Update with your name
+          update-readme-user-email: "info@gha3mi.com"  # Update with your email
