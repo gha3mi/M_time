@@ -1,5 +1,16 @@
 var searchData=
 [
-  ['operator_47',['operator',['../structm__time____oop_1_1date__time.html#a30e180123129eefd600586b2bf76f2bf',1,'m_time__oop::date_time::operator=&gt; plus_seconds'],['../structm__time____oop_1_1date__time.html#a290ebff6b0eea76d6310241bb079a424',1,'m_time__oop::date_time::operator=&gt; eq'],['../structm__time____oop_1_1date__time.html#a1c988234209be91d71ca1029fae69db7',1,'m_time__oop::date_time::operator=&gt; lt'],['../structm__time____oop_1_1date__time.html#ad9c71e66c73c7dbde4a9264e6387bcc9',1,'m_time__oop::date_time::operator=&gt; gt'],['../structm__time____oop_1_1date__time.html#ac8ad0e2b8ac2eabddc835b5e00ef9777',1,'m_time__oop::date_time::operator=&gt; ge'],['../structm__time____oop_1_1date__time.html#a154d7b828b800e5fa104d26022eb07e8',1,'m_time__oop::date_time::operator=&gt; le'],['../structm__time____oop_1_1date__time.html#ae82e8efa15967fdc3ad9617d18f7ce39',1,'m_time__oop::date_time::operator=&gt; ne'],['../structm__time____oop_1_1date__time.html#aa46c007fbb25653b87a6498939a16ec2',1,'m_time__oop::date_time::operator=&gt; minus_seconds'],['../structm__time____oop_1_1date__time.html#a38d828488db801ea2922d3fbafd10903',1,'m_time__oop::date_time::operator=&gt; minus_date_time']]],
-  ['ordinal_48',['ordinal',['../structm__time____oop_1_1date__time.html#a6c3000aaad36c9c03f614bac902f0e4f',1,'m_time__oop::date_time::ordinal()'],['../namespacem__time____oop.html#a4cd900571a58e76cbe239f0843fbcd98',1,'m_time__oop::ordinal()']]]
+  ['m_5ftime_20fortran_20library_0',['M_time Fortran Library',['../index.html',1,'']]],
+  ['m_5ftime_5f_5fduplicate_1',['m_time__duplicate',['../namespacem__time____duplicate.html',1,'']]],
+  ['m_5ftime_5f_5fduplicate_2ef90_2',['M_time__duplicate.f90',['../M__time____duplicate_8f90.html',1,'']]],
+  ['m_5ftime_5f_5foop_3',['m_time__oop',['../namespacem__time____oop.html',1,'']]],
+  ['m_5ftime_5f_5foop_2ef90_4',['M_time__oop.f90',['../M__time____oop_8f90.html',1,'']]],
+  ['mainpage_2etxt_5',['mainpage.txt',['../mainpage_8txt.html',1,'']]],
+  ['millisecond_6',['millisecond',['../structm__time____oop_1_1date__time.html#a31a941054e3089bcaaff2d5a80f514cf',1,'m_time__oop::date_time']]],
+  ['minus_5fdate_5ftime_7',['minus_date_time',['../structm__time____oop_1_1date__time.html#a6d0ac92a0560a39a2410209a9605b8e6',1,'m_time__oop::date_time::minus_date_time()'],['../namespacem__time____oop.html#aae25deafe13cdcfbbe748f40d3731c56',1,'m_time__oop::minus_date_time()']]],
+  ['minus_5fseconds_8',['minus_seconds',['../structm__time____oop_1_1date__time.html#aa0a6d834ef936515c4020c6d4076405c',1,'m_time__oop::date_time::minus_seconds()'],['../namespacem__time____oop.html#a52deaa5c6de2fe127e1270b4ee0e25db',1,'m_time__oop::minus_seconds()']]],
+  ['minute_9',['minute',['../structm__time____oop_1_1date__time.html#acec1807feceeea1a21de823b47f49c85',1,'m_time__oop::date_time']]],
+  ['mjd_10',['mjd',['../structm__time____oop_1_1date__time.html#aed71cb08cce359e1389f829f79ef5d93',1,'m_time__oop::date_time']]],
+  ['mjd_5f_11',['mjd_',['../namespacem__time____oop.html#a7139ca49c5f5f0159489ffb4abf54cfa',1,'m_time__oop']]],
+  ['month_12',['month',['../structm__time____oop_1_1date__time.html#af2a9d001ca0b5357fe2034f0c7e22302',1,'m_time__oop::date_time']]]
 ];

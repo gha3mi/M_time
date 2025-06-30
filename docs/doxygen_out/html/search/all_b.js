@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['ne_46',['ne',['../structm__time____oop_1_1date__time.html#aa5bcace96e6c5d5e8ae43c312df5e1f0',1,'m_time__oop::date_time::ne()'],['../namespacem__time____oop.html#ac15e90347e732d35aeccbe392c7c6656',1,'m_time__oop::ne()']]]
+  ['l2s_0',['l2s',['../interfacem__time____duplicate_1_1v2s.html#ace43860b52b0e63dca91831db06382f0',1,'m_time__duplicate::v2s::l2s()'],['../namespacem__time____duplicate.html#a70d1834ef7343c655a0fcbd65469411f',1,'m_time__duplicate::l2s()']]],
+  ['le_1',['le',['../structm__time____oop_1_1date__time.html#aa8b675885917c63bd076cf486341134d',1,'m_time__oop::date_time::le()'],['../namespacem__time____oop.html#a971aff6098bc347f2cf1f747f557d43f',1,'m_time__oop::le()']]],
+  ['library_2',['M_time Fortran Library',['../index.html',1,'']]],
+  ['license_3',['LICENSE',['../namespacem__time____duplicate.html#autotoc_md6',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md15',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md24',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md32',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md42',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md50',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md59',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md67',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md75',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md83',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md91',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md98',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md106',1,'LICENSE'],['../namespacem__time____duplicate.html#autotoc_md113',1,'LICENSE'],['../namespacem__time____oop.html#autotoc_md119',1,'LICENSE']]],
+  ['lower_4',['lower',['../namespacem__time____duplicate.html#a024aaaa6a9341043d511ada527d24778',1,'m_time__duplicate']]],
+  ['lt_5',['lt',['../structm__time____oop_1_1date__time.html#a3d453d62a5c2f13213ec8fafe3e6e4ef',1,'m_time__oop::date_time::lt()'],['../namespacem__time____oop.html#ae600988ac5cb6d71d24fc15539eef2e4',1,'m_time__oop::lt()']]]
 ];

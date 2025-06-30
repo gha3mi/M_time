@@ -1,4 +1,6 @@
 <map id="m_time__oop::construct_from_jd" name="m_time__oop::construct_from_jd">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,184,47"/>
-<area shape="rect" id="node2" href="$namespacem__time____oop.html#a551abf70a64f1626271caca232bf0a13" title=" " alt="" coords="232,5,411,47"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,183,74"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="51,29,50,19,57,10,72,5,94,3,118,5,133,12,131,17,117,10,94,8,73,10,60,15,55,21,56,28"/>
+<area shape="rect" id="Node000002" href="$namespacem__time____oop.html#a551abf70a64f1626271caca232bf0a13" title=" " alt="" coords="231,29,408,74"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,49,215,49,215,54,183,54"/>
 </map>

@@ -1,0 +1,40 @@
+\doxysection{/home/runner/work/\+M\+\_\+time/\+M\+\_\+time/src/\+CMake\+Lists.txt File Reference}
+\hypertarget{CMakeLists_8txt}{}\label{CMakeLists_8txt}\index{/home/runner/work/M\_time/M\_time/src/CMakeLists.txt@{/home/runner/work/M\_time/M\_time/src/CMakeLists.txt}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_a468d27b5866d7513c3321601dba1deb9}{cmake\+\_\+minimum\+\_\+required}} (VERSION 3.\+10) project(M\+\_\+time LANGUAGES Fortran) \mbox{\hyperlink{CMakeLists_8txt_ab839ab52c035b66d284bdaff81334f62}{set}}(BUILD\+\_\+\+DIR \$
+\item 
+build \mbox{\hyperlink{CMakeLists_8txt_ab839ab52c035b66d284bdaff81334f62}{set}} (CMAKE\+\_\+\+Fortran\+\_\+\+FLAGS "{}\$\{CMAKE\+\_\+\+Fortran\+\_\+\+FLAGS\} -\/std=f2018"{}) set(INCLUDE\+\_\+\+DIRECTORIES \$
+\item 
+include \mbox{\hyperlink{CMakeLists_8txt_a148a7e3b5c0f1b41137c9c4e5ae0a04c}{set}} (CMAKE\+\_\+\+Fortran\+\_\+\+MODULE\+\_\+\+DIRECTORY \$\{CMAKE\+\_\+\+BINARY\+\_\+\+DIR\}/include) add\+\_\+library(M\+\_\+time STATIC M\+\_\+time.\+f90 M\+\_\+time\+\_\+\+\_\+oop.\+f90 M\+\_\+time\+\_\+\+\_\+duplicate.\+f90) set\+\_\+target\+\_\+properties(M\+\_\+time PROPERTIES ARCHIVE\+\_\+\+OUTPUT\+\_\+\+DIRECTORY "{}\$
+\item 
+lib \mbox{\hyperlink{CMakeLists_8txt_af67f3e787da6125b5c8fb85ce117516d}{file}} (GLOB TEST\+\_\+\+SOURCES "{}\$\{CMAKE\+\_\+\+SOURCE\+\_\+\+DIR\}/../test/\texorpdfstring{$\ast$}{*}.f90"{}) file(GLOB EXAMPLE\+\_\+\+SOURCES "{}\$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{CMakeLists_8txt_a468d27b5866d7513c3321601dba1deb9}\index{CMakeLists.txt@{CMakeLists.txt}!cmake\_minimum\_required@{cmake\_minimum\_required}}
+\index{cmake\_minimum\_required@{cmake\_minimum\_required}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{cmake\_minimum\_required()}{cmake\_minimum\_required()}}
+{\footnotesize\ttfamily \label{CMakeLists_8txt_a468d27b5866d7513c3321601dba1deb9} 
+cmake\+\_\+minimum\+\_\+required (\begin{DoxyParamCaption}\item[{VERSION 3.}]{10}{}\end{DoxyParamCaption})}
+
+\Hypertarget{CMakeLists_8txt_af67f3e787da6125b5c8fb85ce117516d}\index{CMakeLists.txt@{CMakeLists.txt}!file@{file}}
+\index{file@{file}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{file()}{file()}}
+{\footnotesize\ttfamily \label{CMakeLists_8txt_af67f3e787da6125b5c8fb85ce117516d} 
+lib file (\begin{DoxyParamCaption}\item[{GLOB TEST\+\_\+\+SOURCES "{}\$\{CMAKE\+\_\+\+SOURCE\+\_\+\+DIR\}/../test/\texorpdfstring{$\ast$}{*}.f90"{}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{CMakeLists_8txt_ab839ab52c035b66d284bdaff81334f62}\index{CMakeLists.txt@{CMakeLists.txt}!set@{set}}
+\index{set@{set}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{CMakeLists_8txt_ab839ab52c035b66d284bdaff81334f62} 
+build set (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{CMakeLists_8txt_a148a7e3b5c0f1b41137c9c4e5ae0a04c}\index{CMakeLists.txt@{CMakeLists.txt}!set@{set}}
+\index{set@{set}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{CMakeLists_8txt_a148a7e3b5c0f1b41137c9c4e5ae0a04c} 
+include set (\begin{DoxyParamCaption}\item[{CMAKE\+\_\+\+Fortran\+\_\+\+MODULE\+\_\+\+DIRECTORY \$\{CMAKE\+\_\+\+BINARY\+\_\+\+DIR\}/}]{include}{}\end{DoxyParamCaption})}
+

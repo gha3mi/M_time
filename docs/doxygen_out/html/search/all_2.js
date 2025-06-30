@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['d2s_8',['d2s',['../interfacem__time____duplicate_1_1v2s.html#a56187455721b7de132dfa1af5941b084',1,'m_time__duplicate::v2s::d2s()'],['../namespacem__time____duplicate.html#aecbd619fedccfc7e57f12d0acc90cc41',1,'m_time__duplicate::d2s()']]],
-  ['date_5ftime_9',['date_time',['../structm__time____oop_1_1date__time.html',1,'m_time__oop']]],
-  ['datout_10',['datout',['../structm__time____oop_1_1date__time.html#a2a0424130b8a10bdf5a801b2caad61a6',1,'m_time__oop::date_time']]],
-  ['day_11',['day',['../structm__time____oop_1_1date__time.html#a621651e2141b690887e0defbf8f585bb',1,'m_time__oop::date_time']]],
-  ['decodebase_12',['decodebase',['../namespacem__time____duplicate.html#ae2223333e8558137ee25cd7675b2800b',1,'m_time__duplicate']]],
-  ['delta_13',['delta',['../structm__time____oop_1_1date__time.html#a764eaeb1d36d62afd825781c8e4c67a3',1,'m_time__oop::date_time::delta()'],['../namespacem__time____oop.html#a8216b7ca452bd4e66c931b1d46c392de',1,'m_time__oop::delta()']]],
-  ['dp_14',['dp',['../namespacem__time____oop.html#a288336b28ddd017d33bb561695f30a08',1,'m_time__oop']]],
-  ['dt2d_5f_15',['dt2d_',['../namespacem__time____oop.html#ae2f6193eb354e704e7ac7875ae586373',1,'m_time__oop']]]
+  ['a2d_0',['a2d',['../interfacem__time____duplicate_1_1string__to__value.html#a332ec0561591289821c96a81e028ef2c',1,'m_time__duplicate::string_to_value::a2d()'],['../namespacem__time____duplicate.html#a6540c593eca59ea89cda8b14150ff1cc',1,'m_time__duplicate::a2d()']]],
+  ['a2i_1',['a2i',['../interfacem__time____duplicate_1_1string__to__value.html#ac8391687a15cf4b0c3ea7113e95a2717',1,'m_time__duplicate::string_to_value::a2i()'],['../namespacem__time____duplicate.html#a2a60527de85372bdeb0719022f4f2b8a',1,'m_time__duplicate::a2i()']]],
+  ['a2r_2',['a2r',['../interfacem__time____duplicate_1_1string__to__value.html#a089e01c0d839a766d16bae12a8c14070',1,'m_time__duplicate::string_to_value::a2r()'],['../namespacem__time____duplicate.html#a473930e8cc43379088d0c514f11bad5d',1,'m_time__duplicate::a2r(chars, valu, ierr)']]],
+  ['adjustc_3',['adjustc',['../namespacem__time____duplicate.html#a823578f00899e6e86b27df0d9f8a3e61',1,'m_time__duplicate']]],
+  ['author_4',['AUTHOR',['../namespacem__time____duplicate.html#autotoc_md5',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md14',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md23',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md31',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md41',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md49',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md58',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md66',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md74',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md82',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md90',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md97',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md105',1,'AUTHOR'],['../namespacem__time____duplicate.html#autotoc_md112',1,'AUTHOR'],['../namespacem__time____oop.html#autotoc_md118',1,'AUTHOR']]]
 ];

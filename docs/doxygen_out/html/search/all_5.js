@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['ge_20',['ge',['../structm__time____oop_1_1date__time.html#a1ed0e94c1660291d78efbcb98e14d9f1',1,'m_time__oop::date_time::ge()'],['../namespacem__time____oop.html#a19c03d4ea139ade40f9e56c4ebda55a8',1,'m_time__oop::ge()']]],
-  ['gen_21',['gen',['../namespacem__time____duplicate.html#a8ab4d9ed13d67b956d6d0212a46a3184',1,'m_time__duplicate']]],
-  ['gt_22',['gt',['../structm__time____oop_1_1date__time.html#a600a8da1e48ce147dafbfd6ee9d3baa4',1,'m_time__oop::date_time::gt()'],['../namespacem__time____oop.html#a112e07d816b464f62aa3d4e63149c3ae',1,'m_time__oop::gt()']]]
+  ['epoch_0',['epoch',['../structm__time____oop_1_1date__time.html#aa9c85d796c8b086e33f89ced0feb2e1e',1,'m_time__oop::date_time']]],
+  ['epoch_5f_1',['epoch_',['../namespacem__time____oop.html#a78668c9e3f7030899e3ed98778558a99',1,'m_time__oop']]],
+  ['eq_2',['eq',['../structm__time____oop_1_1date__time.html#a09c2b2e43019c5f13b99da0b08660ed1',1,'m_time__oop::date_time::eq()'],['../namespacem__time____oop.html#ab0117f19b0f9db9a457af48d718f4265',1,'m_time__oop::eq()']]],
+  ['examples_3',['EXAMPLES',['../namespacem__time____duplicate.html#autotoc_md4',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md13',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md22',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md30',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md40',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md48',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md57',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md65',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md73',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md81',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md89',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md96',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md104',1,'EXAMPLES'],['../namespacem__time____duplicate.html#autotoc_md111',1,'EXAMPLES'],['../namespacem__time____oop.html#autotoc_md117',1,'EXAMPLES']]]
 ];
